@@ -1,0 +1,23 @@
+.sidebar {
+	height: 100%;
+	width: 25%;
+	background-color: #4e5a65;
+	
+	&__block {
+		padding: 0 15px;
+
+		&--dark {
+			background-color: #2a2f34;
+		}
+	}
+
+	&__logo-wrap {
+		padding: 15px;
+	}
+
+	&__logo {
+		display: block;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+}

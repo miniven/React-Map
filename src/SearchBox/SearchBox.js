@@ -26,7 +26,7 @@ export default class SearchBox extends Component {
 	}
 
 	sortList(string) {
-		this.list = this.props.list.filter(item => item.indexOf(string) >= 0);
+		this.list = this.props.list.filter(item => item.name.toLowerCase().indexOf(string.toLowerCase()) >= 0);
 	}
 
 	render() {

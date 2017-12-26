@@ -8,14 +8,9 @@ import './index.scss'
 
 // Components //
 
-import SearchBox from './SearchBox/SearchBox';
-
-const list = [
-	"Вениамин Трепачко",
-	"Someone else"
-];
+import Sidebar from './Sidebar/Sidebar';
 
 ReactDOM.render(
-	<SearchBox list={list}/>,
+	<Sidebar />,
 	document.querySelector('#app')
 );

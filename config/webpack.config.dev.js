@@ -133,7 +133,20 @@ module.exports = {
           {
             test: /\.scss$/,
             include: paths.appSrc,
-            loaders: ["style-loader", "css-loader", "sass-loader"]
+            loaders: [
+              "style-loader", 
+              "css-loader", 
+              {
+                loader: "sass-loader", 
+                options: {
+                  sourceMap: true,
+                  data: '@import "_variables";',
+                  includePaths: [
+                    paths.appSrc
+                  ]
+                }
+              }
+            ]
           },
           {
             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],

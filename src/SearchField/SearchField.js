@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import searchIcon from './search-icon.svg';
 import './SearchField.scss';
 
 export default class SearchField extends Component {
@@ -29,11 +28,6 @@ export default class SearchField extends Component {
 					onChange={this.props.handleChange}
 					onFocus={this.handleFocus}
 					onBlur={this.handleFocus}
-				/>
-				<img
-					className='search__icon' 
-					src={searchIcon} 
-					alt='Найти'
 				/>
 			</div>
 		);

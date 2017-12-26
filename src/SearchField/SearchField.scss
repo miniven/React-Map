@@ -1,28 +1,26 @@
 .search {
 	position: relative;
-	margin: 15px;
+	margin: 15px 0;
+	padding: 2px;
 	font-size: 1rem;
-	font-family: 'Montserrat', sans-serif;
+	font-family: $font-main;
 	font-weight: 500;
-	background-color: #fff;
-	// border: 2px solid #dedede;
-	border: 2px solid transparent;
-	border-radius: 3px;
-	box-shadow: 0 10px 30px -5px transparentize(#000, 0.9);
+	background-color: #2a2f34;
+	border-radius: 0;
 	transition: 0.2s ease;
 
 	&--focused {
-		border-color: #f1c40f;
-		box-shadow: 0 10px 30px -7px transparentize(#000, 0.9);
+		// background-image: linear-gradient(to right, #ff8008, #ffc837);
 	}
 
 	&__input {
 		position: relative;
 		width: 100%;
-		padding: 15px 65px 15px 15px;
+		padding: 10px;
 		font-family: inherit;
-		font-size: 1.125em;
+		font-size: 1em;
 		font-weight: inherit;
+		color: #fff;
 		background-color: transparent;
 		border: none;
 		appearance: none;
@@ -31,15 +29,5 @@
 		&:focus {
 			outline: none;
 		}
-	}
-
-	&__icon {
-		position: absolute;
-		top: 50%;
-		right: 0;
-		transform: translateY(-50%);
-		height: 35px;
-		padding: 0 15px;
-		z-index: 0;
 	}
 }

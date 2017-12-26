@@ -1,32 +1,14 @@
 .search-list {
 	padding: 0;
-	margin: 15px;
+	margin: 15px 0;
 	font-size: 1rem;
-	font-family: 'Montserrat', sans-serif;
+	font-family: $font-main;
 	font-weight: 500;
 	list-style: none;
 	border-radius: 3px;
-	box-shadow: 0 10px 30px -5px transparentize(#000, 0.9);
 	overflow: hidden;
 
 	&__item {
-		background-color: #fff;
-		border-bottom: 1px solid #FAFAFA;
 
-		&:last-child {
-			border-bottom: none;
-		}
-	}
-
-	&__link {
-		display: block;
-		padding: 15px;
-		color: #000;
-		text-decoration: none;
-
-		&:hover,
-		&:focus {
-			font-weight: 500;
-		}
 	}
 }
