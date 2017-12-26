@@ -1,14 +1,14 @@
 .search {
-	display: flex;
-	width: 25%;
+	position: relative;
 	margin: 15px;
 	font-size: 1rem;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
 	background-color: #fff;
-	border: 2px solid #fff;
+	// border: 2px solid #dedede;
+	border: 2px solid transparent;
 	border-radius: 3px;
-	box-shadow: 0 10px 30px -5px transparentize(#000, 0.8);
+	box-shadow: 0 10px 30px -5px transparentize(#000, 0.9);
 	transition: 0.2s ease;
 
 	&--focused {
@@ -17,14 +17,16 @@
 	}
 
 	&__input {
-		flex: 1;
-		padding: 15px;
+		position: relative;
+		width: 100%;
+		padding: 15px 65px 15px 15px;
 		font-family: inherit;
 		font-size: 1.125em;
 		font-weight: inherit;
 		background-color: transparent;
 		border: none;
 		appearance: none;
+		z-index: 1;
 
 		&:focus {
 			outline: none;
@@ -32,6 +34,12 @@
 	}
 
 	&__icon {
-		margin: 0 15px;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		height: 35px;
+		padding: 0 15px;
+		z-index: 0;
 	}
 }

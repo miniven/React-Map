@@ -7,19 +7,11 @@ export default class SearchField extends Component {
 		super(props);
 
 		this.state = {
-			value: '',
 			focused: false
 		};
 
 		// Binding
-		this.handleChange = this.handleChange.bind(this);
 		this.handleFocus = this.handleFocus.bind(this);
-	}
-
-	handleChange(event) {
-		this.setState({
-			value: event.target.value
-		});
 	}
 
 	handleFocus(event) {
@@ -33,8 +25,8 @@ export default class SearchField extends Component {
 			<div className={this.state.focused ? 'search search--focused' : 'search'}>
 				<input
 					className='search__input'
-					value={this.state.value}
-					onChange={this.handleChange}
+					value={this.props.value}
+					onChange={this.props.handleChange}
 					onFocus={this.handleFocus}
 					onBlur={this.handleFocus}
 				/>

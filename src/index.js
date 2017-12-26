@@ -8,9 +8,14 @@ import './index.scss'
 
 // Components //
 
-import SearchField from './SearchField/SearchField';
+import SearchBox from './SearchBox/SearchBox';
+
+const list = [
+	"Вениамин Трепачко",
+	"Someone else"
+];
 
 ReactDOM.render(
-	<SearchField />,
+	<SearchBox list={list}/>,
 	document.querySelector('#app')
 );
