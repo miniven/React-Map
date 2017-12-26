@@ -1,0 +1,37 @@
+.search {
+	display: flex;
+	width: 25%;
+	margin: 15px;
+	font-size: 1rem;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	background-color: #fff;
+	border: 2px solid #fff;
+	border-radius: 3px;
+	box-shadow: 0 10px 30px -5px transparentize(#000, 0.8);
+	transition: 0.2s ease;
+
+	&--focused {
+		border-color: #f1c40f;
+		box-shadow: 0 10px 30px -7px transparentize(#000, 0.9);
+	}
+
+	&__input {
+		flex: 1;
+		padding: 15px;
+		font-family: inherit;
+		font-size: 1.125em;
+		font-weight: inherit;
+		background-color: transparent;
+		border: none;
+		appearance: none;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&__icon {
+		margin: 0 15px;
+	}
+}
