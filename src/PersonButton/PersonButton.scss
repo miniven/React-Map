@@ -22,6 +22,11 @@
 		color: #000;
 		background-color: transparentize(#fff, 0.2);
 		outline: none;
+
+		.person-button__selection {
+			color: #000;
+			background-color: transparentize(#000, 0.85);
+		}
 	}
 
 	&__name {
@@ -34,6 +39,7 @@
 		color: #fff;
 		background-color: transparentize(#fff, 0.85);
 		border-radius: 2px;
+		transition: 0.1s ease;
 	}
 
 	&__post {
