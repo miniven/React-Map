@@ -6,11 +6,12 @@
 	font-family: $font-main;
 	font-weight: 500;
 	background-color: #2a2f34;
-	border-radius: 0;
+	border-radius: 1px;
 	transition: 0.2s ease;
 
 	&--focused {
 		// background-image: linear-gradient(to right, #ff8008, #ffc837);
+		background-color: transparentize(#000, 0.4);
 	}
 
 	&__input {
@@ -21,8 +22,9 @@
 		font-size: 1em;
 		font-weight: inherit;
 		color: #fff;
-		background-color: transparent;
+		background-color: #2a2f34;
 		border: none;
+		border-radius: 1px;
 		appearance: none;
 		z-index: 1;
 
