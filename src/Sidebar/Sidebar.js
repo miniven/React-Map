@@ -10,28 +10,56 @@ export default class Sidebar extends Component {
 	constructor(props) {
 		super(props);
 
-		this.list = this.props.list;
 		this.state = {
 			value: '',
 			sortedBy: 'name',
-			sortFunc: (prev, cur) => prev.name > cur.name ? 1 : -1
+			sortFunc: (prev, cur) => (prev.name > cur.name ? 1 : -1),
+			initialList: [
+				{
+					name: "Вениамин Трепачко",
+					post: "Должность",
+					division: "Отдел разработки"
+				},
+				{
+					name: "Мария Трепачко",
+					post: "Должность",
+					division: "Отдел разработки"
+				},
+				{
+					name: "Семен Петров",
+					post: "Должность",
+					division: "Отдел дизайна"
+				},
+				{
+					name: "Василий Евгениевич",
+					post: "Должность",
+					division: "Отдел маркетинга"
+				}
+			],
+			list: []
 		};
 
 		// Binding
 		this.handleChange = this.handleChange.bind(this);
-		this.sortList = this.sortList.bind(this);
+		this.filterList = this.filterList.bind(this);
 		this.setSortBy = this.setSortBy.bind(this);
+	}
+
+	componentWillMount(){
+		this.setState({list: this.state.initialList})
 	}
 
 	handleChange(event) {
 		this.setState({
 			value: event.target.value
 		});
-		this.sortList(event.target.value);
+		this.filterList(event.target.value);
 	}
 
-	sortList(string) {
-		this.list = this.props.list.filter(item => item.name.toLowerCase().indexOf(string.toLowerCase()) >= 0);
+	filterList(string) {
+		this.setState({
+			list: this.state.initialList.filter(item => item.name.toLowerCase().indexOf(string.toLowerCase()) >= 0)
+		});
 	}
 
 	setSortBy(prop) {
@@ -56,7 +84,7 @@ export default class Sidebar extends Component {
 						<SortButton type='division' sortedBy={this.state.sortedBy} setSortBy={this.setSortBy}>Отделы</SortButton>
 					</div>
 				</div>
-				<SearchList list={this.list.sort(this.state.sortFunc)}/>
+				<SearchList list={this.state.list.sort(this.state.sortFunc)}/>
 			</aside>
 		);
 	}
