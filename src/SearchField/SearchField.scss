@@ -11,7 +11,6 @@
 
 	&--focused {
 		// background-image: linear-gradient(to right, #ff8008, #ffc837);
-		background-color: transparentize(#000, 0.4);
 	}
 
 	&__input {
@@ -20,6 +19,7 @@
 		padding: 10px;
 		font-family: inherit;
 		font-size: 1em;
+		line-height: 1.5em;
 		font-weight: inherit;
 		color: #fff;
 		background-color: #2a2f34;

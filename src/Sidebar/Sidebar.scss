@@ -2,6 +2,7 @@
 	height: 100%;
 	width: 25%;
 	font-size: 1rem;
+	line-height: 1.5em;
 	background-color: #4e5a65;
 	
 	&__block {
@@ -25,5 +26,14 @@
 	&__sort-block {
 		display: flex;
 		justify-content: center;
+	}
+
+	&__message {
+		margin: 20px 15px;
+		font-size: 1em;
+		font-family: $font-main;
+		font-weight: 500;
+		text-align: center;
+		color: #fff;
 	}
 }

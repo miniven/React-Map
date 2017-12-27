@@ -8,7 +8,7 @@ export default class SearchList extends Component {
 		const list = this.props.list.map((item, index) => {
 			return (
 				<li key={index} className='search-list__item'>
-					<PersonButton data={item}/>
+					<PersonButton searchValue={this.props.searchValue} data={item}/>
 				</li>
 			);
 		});

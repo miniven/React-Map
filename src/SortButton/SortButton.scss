@@ -10,15 +10,24 @@
 	border-bottom: 2px solid transparent;
 	border-radius: none;
 	appearance: none;
+	transition: 0.2s ease;
 	opacity: 0.8;
 	cursor: pointer;
 
-	&--active {
-		border-color: #fff;
-		outline: none;
+	&:hover {
+		border-color: transparentize(#fff, 0.7);
 	}
 
 	&:focus {
 		outline: none;
+	}
+
+	&--active {
+		border-color: #fff;
+		outline: none;
+
+		&:hover {
+			border-color: #fff;
+		}
 	}
 }

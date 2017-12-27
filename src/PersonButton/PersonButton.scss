@@ -30,6 +30,12 @@
 		font-weight: 600;
 	}
 
+	&__selection {
+		color: #fff;
+		background-color: transparentize(#fff, 0.85);
+		border-radius: 2px;
+	}
+
 	&__post {
 		margin: 5px 0;
 		font-size: 0.85em;

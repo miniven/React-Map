@@ -11,7 +11,7 @@ export default class Sidebar extends Component {
 		super(props);
 
 		this.state = {
-			value: '',
+			searchValue: '',
 			sortedBy: 'name',
 			sortFunc: (prev, cur) => (prev.name > cur.name ? 1 : -1),
 			initialList: [
@@ -51,7 +51,7 @@ export default class Sidebar extends Component {
 
 	handleChange(event) {
 		this.setState({
-			value: event.target.value
+			searchValue: event.target.value
 		});
 		this.filterList(event.target.value);
 	}
@@ -70,6 +70,14 @@ export default class Sidebar extends Component {
 	}
 
 	render() {
+		let filterResult = null;
+
+		if (this.state.list.length > 0) {
+			filterResult = <SearchList searchValue={this.state.searchValue} list={this.state.list.sort(this.state.sortFunc)}/>;
+		} else {
+			filterResult = <p className='sidebar__message'>Кажется, сотрудник с таким именем не работает в компании. Попробуйте поискать другого.</p>;
+		};
+
 		return (
 			<aside className='sidebar'>
 				<div className='sidebar__block sidebar__block--dark'>
@@ -78,13 +86,13 @@ export default class Sidebar extends Component {
 					</div>
 				</div>
 				<div className='sidebar__block'>
-					<SearchField value={this.state.value} handleChange={this.handleChange}/>
+					<SearchField value={this.state.searchValue} handleChange={this.handleChange}/>
 					<div className='sidebar__sort-block'>
 						<SortButton type='name' sortedBy={this.state.sortedBy} setSortBy={this.setSortBy}>А-Я</SortButton>
 						<SortButton type='division' sortedBy={this.state.sortedBy} setSortBy={this.setSortBy}>Отделы</SortButton>
 					</div>
 				</div>
-				<SearchList list={this.state.list.sort(this.state.sortFunc)}/>
+				{filterResult}
 			</aside>
 		);
 	}
