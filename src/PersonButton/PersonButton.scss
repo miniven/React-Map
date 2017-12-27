@@ -1,7 +1,7 @@
 .person-button {
 	display: block;
 	width: 100%;
-	padding: 7px;
+	padding: 7px 15px;
 	font-family: $font-main;
 	font-size: 1rem;
 	text-decoration: none;
@@ -10,12 +10,24 @@
 	background-color: transparent;
 	border: none;
 	border-radius: 0;
+	transition: 0.1s ease;
 	appearance: none;
 	cursor: pointer;
+
+	&:hover {
+		background-color: transparentize(#fff, 0.85);
+	}
+
+	&:focus {
+		color: #000;
+		background-color: transparentize(#fff, 0.2);
+		outline: none;
+	}
 
 	&__name {
 		margin: 5px 0;
 		font-size: 1.125em;
+		font-weight: 600;
 	}
 
 	&__post {

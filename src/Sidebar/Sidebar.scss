@@ -1,6 +1,7 @@
 .sidebar {
 	height: 100%;
 	width: 25%;
+	font-size: 1rem;
 	background-color: #4e5a65;
 	
 	&__block {
@@ -19,5 +20,10 @@
 		display: block;
 		max-width: 100%;
 		margin: 0 auto;
+	}
+
+	&__sort-block {
+		display: flex;
+		justify-content: center;
 	}
 }
