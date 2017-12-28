@@ -8,9 +8,9 @@ import './index.scss'
 
 // Components //
 
-import Sidebar from './Sidebar/Sidebar';
+import App from './App/App';
 
 ReactDOM.render(
-	<Sidebar/>,
-	document.querySelector('#app')
+	<App />,
+	document.querySelector('#root')
 );

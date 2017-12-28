@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import SVGInline from 'react-svg-inline';
 import Logo from './lp-logo.svg';
+
 import './Sidebar.scss';
 
 import SearchField from '../SearchField/SearchField';
@@ -81,8 +83,8 @@ export default class Sidebar extends Component {
 		return (
 			<aside className='sidebar'>
 				<div className='sidebar__block sidebar__block--dark'>
-					<div className='sidebar__logo-wrap'>
-						<img className='sidebar__logo' src={Logo} alt='LINKPROFIT'/>
+					<div className='sidebar__logo'>
+						<SVGInline svg={Logo} />
 					</div>
 				</div>
 				<div className='sidebar__block'>

@@ -1,0 +1,16 @@
+.app {
+	position: relative;
+	display: flex;
+	height: 100%;
+
+	&__sidebar {
+		flex: none;
+		flex-basis: 25%;
+		min-width: 310px;
+	}
+
+	&__main {
+		flex: 1;
+		overflow: hidden;
+	}
+}

@@ -149,6 +149,11 @@ module.exports = {
             ]
           },
           {
+            test: /\.svg$/,
+            include: paths.appSrc,
+            loader: 'raw-loader'
+          },
+          {
             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
             loader: require.resolve('url-loader'),
             options: {
