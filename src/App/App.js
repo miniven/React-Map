@@ -16,22 +16,38 @@ export default class App extends Component {
 				{
 					name: "Вениамин Трепачко",
 					post: "Должность",
-					division: "Отдел разработки"
+					division: "Отдел разработки",
+					pos: {
+						x: 150,
+						y: 150
+					}
 				},
 				{
 					name: "Мария Трепачко",
 					post: "Должность",
-					division: "Отдел разработки"
+					division: "Отдел разработки",
+					pos: {
+						x: 200,
+						y: 250
+					}
 				},
 				{
 					name: "Семен Петров",
 					post: "Должность",
-					division: "Отдел дизайна"
+					division: "Отдел дизайна",
+					pos: {
+						x: 250,
+						y: 350
+					}
 				},
 				{
 					name: "Василий Евгениевич",
 					post: "Должность",
-					division: "Отдел маркетинга"
+					division: "Отдел маркетинга",
+					pos: {
+						x: 300,
+						y: 450
+					}
 				}
 			],
 			list: []
@@ -80,7 +96,9 @@ export default class App extends Component {
 					/>
 				</div>
 				<main className='app__main'>
-					<Scheme />
+					<Scheme 
+						list={this.state.list}
+					/>
 				</main>
 			</div>
 		);
