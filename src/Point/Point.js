@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 
+import './Point.scss';
+
 export default class Point extends Component {
 	render() {
+		const pointClassName = `point ${this.props.currentPoint === this.props.data.name ? 'point--visible' : 'point--hidden'}`;
+
 		return (
-			<g fill="#ffffff" onClick={this.props.handleClick}>
+			<g 
+				fill="#ffffff" 
+				onClick={event => {
+					this.props.setCurrentPoint(this.props.data);
+					this.props.toggleModal();
+				}}
+			>
 				<text 
 					x={this.props.data.pos.x} 
 					y={this.props.data.pos.y}

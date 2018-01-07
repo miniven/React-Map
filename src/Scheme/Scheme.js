@@ -17,10 +17,11 @@ export default class Scheme extends Component {
 			<g>
 				{list.map((employee, index) => {
 					return (
-						<Point 
+						<Point
+							setCurrentPoint={this.props.setCurrentPoint}
 							key={index} 
 							data={employee} 
-							handleClick={event => console.log(event.target)}
+							toggleModal={this.props.toggleModal}
 						/>
 					);
 				})}

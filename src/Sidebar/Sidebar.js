@@ -13,7 +13,11 @@ export default class Sidebar extends Component {
 		let filterResult = null;
 
 		if (this.props.list.length > 0) {
-			filterResult = <SearchList searchValue={this.props.searchValue} list={this.props.list.sort(this.props.sortFunc)}/>;
+			filterResult = <SearchList 
+				setCurrentPoint={this.props.setCurrentPoint}
+				searchValue={this.props.searchValue} 
+				list={this.props.list.sort(this.props.sortFunc)}
+			/>;
 		} else {
 			filterResult = <p className='sidebar__message'>Кажется, сотрудник с таким именем не работает в компании. Попробуйте поискать другого.</p>;
 		};

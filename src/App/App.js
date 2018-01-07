@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import Scheme from '../Scheme/Scheme';
+import Modal from '../Modal/Modal';
 
 import './App.scss';
 
@@ -10,6 +11,8 @@ export default class App extends Component {
 
 		this.state = {
 			searchValue: '',
+			modalIsOpen: false,
+			currentPoint: null,
 			sortedBy: 'name',
 			sortFunc: (prev, cur) => (prev.name > cur.name ? 1 : -1),
 			initialList: [
@@ -57,6 +60,8 @@ export default class App extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.filterList = this.filterList.bind(this);
 		this.setSortBy = this.setSortBy.bind(this);
+		this.toggleModal = this.toggleModal.bind(this);
+		this.setCurrentPoint = this.setCurrentPoint.bind(this);
 	}
 
 	componentWillMount(){
@@ -76,10 +81,22 @@ export default class App extends Component {
 		});
 	}
 
-	setSortBy(prop) {
+	toggleModal() {
+		this.setState({
+			modalIsOpen: !this.state.modalIsOpen
+		});
+	}
+
+	setSortBy(prop) {		
 		this.setState({
 			sortedBy: prop,
 			sortFunc: (prev, cur) => prev[prop] > cur[prop] ? 1 : -1
+		});
+	}
+
+	setCurrentPoint(data) {
+		this.setState({
+			currentPoint: data
 		});
 	}
 
@@ -92,11 +109,20 @@ export default class App extends Component {
 						handleChange={this.handleChange}
 						sortedBy={this.state.sortedBy}
 						setSortBy={this.setSortBy}
+						sortFunc={this.state.sortFunc}
 						list={this.state.list}
+						setCurrentPoint={this.setCurrentPoint}
 					/>
 				</div>
 				<main className='app__main'>
+					<Modal 
+						data={this.state.currentPoint}
+						toggleModal={this.toggleModal}
+						isOpen={this.state.modalIsOpen}
+					/>
 					<Scheme 
+						setCurrentPoint={this.setCurrentPoint}
+						toggleModal={this.toggleModal}
 						list={this.state.list}
 					/>
 				</main>

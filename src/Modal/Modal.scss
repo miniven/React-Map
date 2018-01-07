@@ -1,0 +1,58 @@
+.modal {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparentize(#000, 0.6);
+
+	&--open {
+		display: flex;
+	}
+
+	&--closed {
+		display: none;
+	}
+
+	&__box {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 50%;
+		padding: 8px 15px;
+		font-family: $font-main;
+		font-size: 1rem;
+		background-color: #fff;
+		border: none;
+	}
+
+	&__row {
+		width: 100%;
+		margin: 8px 0;
+
+		&--half {
+			width: 50%;
+		}
+	}
+
+	&__title {
+		margin: 10px 0;
+		font-family: $font-main;
+		font-size: 1.75em;
+		font-weight: 700;
+	}
+
+	&__label {
+		font-size: 0.75em;
+		color: transparentize(#000, 0.4);
+	}
+
+	&__value {
+		margin: 5px 0 0;
+		font-size: 1em;
+		color: #000;
+	}
+}
