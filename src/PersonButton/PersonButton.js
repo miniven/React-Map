@@ -18,9 +18,22 @@ export default class PersonButton extends Component {
 		);
 	}
 
+	handleClick() {
+		const node = this.props.point.node;
+		const pos = node.getBBox();
+
+		console.log(node);
+	}
+
 	render() {
 		return (
-			<button className='person-button' onClick={event => this.props.setCurrentPoint(this.props.data.name)}>
+			<button 
+				className='person-button' 
+				onClick={event => {
+					this.props.setCurrentPoint(this.props.data.name);
+					this.props.setScale(3);
+				}}
+			>
 				{
 					this.props.searchValue === '' ? 
 						(<p className='person-button__name'>{this.props.data.name}</p>) : 

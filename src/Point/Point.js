@@ -9,8 +9,9 @@ export default class Point extends Component {
 		return (
 			<g 
 				fill="#ffffff" 
+				ref={ node => this.node = node }
 				onClick={event => {
-					this.props.setCurrentPoint(this.props.data);
+					this.props.setCurrentPoint(this.props.data, this.node);
 					this.props.toggleModal();
 				}}
 			>
@@ -19,14 +20,14 @@ export default class Point extends Component {
 					y={this.props.data.pos.y}
 					fontFamily="Helvetica, Arial, sans-serif" 
 					fill="#000000">
-					<tspan dy="20.8" x="0">{this.props.data.name}</tspan>
+					<tspan dy="20.8" x={this.props.data.pos.x}>{this.props.data.name}</tspan>
 				</text>
 				<text 
 					x={this.props.data.pos.x} 
 					y={this.props.data.pos.y + 20}
 					fontFamily="Helvetica, Arial, sans-serif" 
 					fill="#000000">
-					<tspan dy="20.8" x="12.0546875">{this.props.data.post}</tspan>
+					<tspan dy="20.8" x={this.props.data.pos.x}>{this.props.data.post}</tspan>
 				</text>
 			</g>
 		);

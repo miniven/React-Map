@@ -14,6 +14,8 @@ export default class App extends Component {
 			modalIsOpen: false,
 			currentPoint: null,
 			sortedBy: 'name',
+			scale: 1,
+			translatePos: {},
 			sortFunc: (prev, cur) => (prev.name > cur.name ? 1 : -1),
 			initialList: [
 				{
@@ -21,8 +23,8 @@ export default class App extends Component {
 					post: "Должность",
 					division: "Отдел разработки",
 					pos: {
-						x: 150,
-						y: 150
+						x: 850,
+						y: 700
 					}
 				},
 				{
@@ -62,6 +64,7 @@ export default class App extends Component {
 		this.setSortBy = this.setSortBy.bind(this);
 		this.toggleModal = this.toggleModal.bind(this);
 		this.setCurrentPoint = this.setCurrentPoint.bind(this);
+		this.setScale = this.setScale.bind(this);
 	}
 
 	componentWillMount(){
@@ -94,9 +97,16 @@ export default class App extends Component {
 		});
 	}
 
-	setCurrentPoint(data) {
+	setCurrentPoint(data, node) {
 		this.setState({
-			currentPoint: data
+			currentPoint: {data, node}
+		});
+	}
+
+	setScale(num, pos) {
+		this.setState({
+			scale: num,
+			translatePos: pos
 		});
 	}
 
@@ -111,21 +121,26 @@ export default class App extends Component {
 						setSortBy={this.setSortBy}
 						sortFunc={this.state.sortFunc}
 						list={this.state.list}
+						point={this.state.currentPoint}
 						setCurrentPoint={this.setCurrentPoint}
+						setScale={this.setScale}
 					/>
 				</div>
 				<main className='app__main'>
-					<Modal 
-						data={this.state.currentPoint}
-						toggleModal={this.toggleModal}
-						isOpen={this.state.modalIsOpen}
-					/>
 					<Scheme 
 						setCurrentPoint={this.setCurrentPoint}
 						toggleModal={this.toggleModal}
 						list={this.state.list}
+						scale={this.state.scale}
+						translatePos={this.state.translatePos}
 					/>
 				</main>
+				<Modal 
+					point={this.state.currentPoint}
+					toggleModal={this.toggleModal}
+					isOpen={this.state.modalIsOpen}
+					setScale={this.setScale}
+				/>
 			</div>
 		);
 	}

@@ -9,8 +9,10 @@ export default class SearchList extends Component {
 			return (
 				<li key={index} className='search-list__item'>
 					<PersonButton 
+						point={this.props.point}
 						setCurrentPoint={this.props.setCurrentPoint}
 						searchValue={this.props.searchValue} 
+						setScale={this.props.setScale}
 						data={item}
 					/>
 				</li>

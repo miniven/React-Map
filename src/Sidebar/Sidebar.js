@@ -17,6 +17,8 @@ export default class Sidebar extends Component {
 				setCurrentPoint={this.props.setCurrentPoint}
 				searchValue={this.props.searchValue} 
 				list={this.props.list.sort(this.props.sortFunc)}
+				setScale={this.props.setScale}
+				point={this.props.point}
 			/>;
 		} else {
 			filterResult = <p className='sidebar__message'>Кажется, сотрудник с таким именем не работает в компании. Попробуйте поискать другого.</p>;

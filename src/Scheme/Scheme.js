@@ -33,7 +33,7 @@ export default class Scheme extends Component {
 	render() {
 		return (
 			<div className='scheme' ref={scheme => this.scheme = scheme}>
-				<SVGInline svg={SchemeSVG} />
+				<SVGInline svg={SchemeSVG} style={ {transform: `scale(${this.props.scale}`} } />
 			</div>
 		);
 	}
