@@ -18,6 +18,7 @@ export default class Scheme extends Component {
 				{list.map((employee, index) => {
 					return (
 						<Point
+							addToNodeList={this.props.addToNodeList}
 							setCurrentPoint={this.props.setCurrentPoint}
 							key={index} 
 							data={employee} 
@@ -31,9 +32,17 @@ export default class Scheme extends Component {
 	}
 
 	render() {
+		// const translate = this.props.currentPoint ? `translate(${this.props.currentPoint.pos.x}px, ${this.props.currentPoint.pos.y}px)` : '';
+		let translate = '';
+
+		if (this.props.currentNode) {
+			const pos = this.props.currentNode.getBoundingClientRect();
+			translate = `translate(${1014 / 2 - pos.x}px, ${pos.y}px)`;
+		};
+
 		return (
 			<div className='scheme' ref={scheme => this.scheme = scheme}>
-				<SVGInline svg={SchemeSVG} style={ {transform: `scale(${this.props.scale}`} } />
+				<SVGInline svg={SchemeSVG} style={ {transform: `scale(${1}) ${translate}`} } />
 			</div>
 		);
 	}

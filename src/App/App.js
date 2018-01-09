@@ -15,7 +15,6 @@ export default class App extends Component {
 			currentPoint: null,
 			sortedBy: 'name',
 			scale: 1,
-			translatePos: {},
 			sortFunc: (prev, cur) => (prev.name > cur.name ? 1 : -1),
 			initialList: [
 				{
@@ -55,7 +54,8 @@ export default class App extends Component {
 					}
 				}
 			],
-			list: []
+			list: [],
+			nodeList: {}
 		};
 
 		// Binding
@@ -64,7 +64,8 @@ export default class App extends Component {
 		this.setSortBy = this.setSortBy.bind(this);
 		this.toggleModal = this.toggleModal.bind(this);
 		this.setCurrentPoint = this.setCurrentPoint.bind(this);
-		this.setScale = this.setScale.bind(this);
+		this.setTransform = this.setTransform.bind(this);
+		this.addToNodeList = this.addToNodeList.bind(this);
 	}
 
 	componentWillMount(){
@@ -97,20 +98,30 @@ export default class App extends Component {
 		});
 	}
 
-	setCurrentPoint(data, node) {
+	setCurrentPoint(data) {
 		this.setState({
-			currentPoint: {data, node}
+			currentPoint: data
 		});
 	}
 
-	setScale(num, pos) {
+	setTransform(scale) {
 		this.setState({
-			scale: num,
-			translatePos: pos
+			scale
+		});
+	}
+
+	addToNodeList(name, node) {
+		const nodeList = this.state.nodeList;
+
+		nodeList[name] = node;
+		this.setState({
+			nodeList
 		});
 	}
 
 	render() {
+		const currentNode = this.state.currentPoint ? this.state.nodeList[this.state.currentPoint.name] : null;
+
 		return (
 			<div className='app'>
 				<div className='app__sidebar'>
@@ -123,23 +134,25 @@ export default class App extends Component {
 						list={this.state.list}
 						point={this.state.currentPoint}
 						setCurrentPoint={this.setCurrentPoint}
-						setScale={this.setScale}
+						setTransform={this.setTransform}
 					/>
 				</div>
 				<main className='app__main'>
 					<Scheme 
+						addToNodeList={this.addToNodeList}
 						setCurrentPoint={this.setCurrentPoint}
 						toggleModal={this.toggleModal}
 						list={this.state.list}
 						scale={this.state.scale}
-						translatePos={this.state.translatePos}
+						currentPoint={this.state.currentPoint}
+						currentNode={currentNode}
 					/>
 				</main>
 				<Modal 
 					point={this.state.currentPoint}
 					toggleModal={this.toggleModal}
 					isOpen={this.state.modalIsOpen}
-					setScale={this.setScale}
+					setTransform={this.setTransform}
 				/>
 			</div>
 		);

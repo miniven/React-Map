@@ -19,10 +19,10 @@ export default class PersonButton extends Component {
 	}
 
 	handleClick() {
-		const node = this.props.point.node;
-		const pos = node.getBBox();
+		// const node = this.props.point.node;
+		// const pos = node.getBBox();
 
-		console.log(node);
+		// console.log(node);
 	}
 
 	render() {
@@ -30,8 +30,9 @@ export default class PersonButton extends Component {
 			<button 
 				className='person-button' 
 				onClick={event => {
-					this.props.setCurrentPoint(this.props.data.name);
-					this.props.setScale(3);
+					this.props.setCurrentPoint(this.props.data);
+					this.props.setTransform(3);
+					this.handleClick();
 				}}
 			>
 				{

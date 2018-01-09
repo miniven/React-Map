@@ -12,7 +12,7 @@ export default class SearchList extends Component {
 						point={this.props.point}
 						setCurrentPoint={this.props.setCurrentPoint}
 						searchValue={this.props.searchValue} 
-						setScale={this.props.setScale}
+						setTransform={this.props.setTransform}
 						data={item}
 					/>
 				</li>

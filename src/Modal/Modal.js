@@ -6,7 +6,7 @@ export default class Modal extends Component {
 	render() {
 		if (!this.props.point) return null;
 
-		const data = this.props.point.data;
+		const data = this.props.point;
 		const modalClassName = `modal ${this.props.isOpen ? 'modal--open' : 'modal--closed'}`;
 		const photoSrc = data.photo ? data.photo : 'https://www.matchmyemail.com/wp-content/themes/nrg/images/userpic.png';
 
@@ -22,7 +22,7 @@ export default class Modal extends Component {
 				>
 					<button className='modal__close' onClick={event => {
 						this.props.toggleModal();
-						this.props.setScale(1);
+						this.props.setTransform(1);
 					}}>X</button>
 					<div className='modal__row modal__row--half'>
 						<img className='modal__userpic' src={photoSrc} alt={data.name} />

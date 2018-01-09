@@ -17,7 +17,7 @@ export default class Sidebar extends Component {
 				setCurrentPoint={this.props.setCurrentPoint}
 				searchValue={this.props.searchValue} 
 				list={this.props.list.sort(this.props.sortFunc)}
-				setScale={this.props.setScale}
+				setTransform={this.props.setTransform}
 				point={this.props.point}
 			/>;
 		} else {
