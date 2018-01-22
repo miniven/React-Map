@@ -16,44 +16,6 @@ export default class App extends Component {
 			sortedBy: 'name',
 			scale: 1,
 			sortFunc: (prev, cur) => (prev.name > cur.name ? 1 : -1),
-			initialList: [
-				{
-					name: "Вениамин Трепачко",
-					post: "Должность",
-					division: "Отдел разработки",
-					pos: {
-						x: 850,
-						y: 700
-					}
-				},
-				{
-					name: "Мария Трепачко",
-					post: "Должность",
-					division: "Отдел разработки",
-					pos: {
-						x: 200,
-						y: 250
-					}
-				},
-				{
-					name: "Семен Петров",
-					post: "Должность",
-					division: "Отдел дизайна",
-					pos: {
-						x: 250,
-						y: 350
-					}
-				},
-				{
-					name: "Василий Евгениевич",
-					post: "Должность",
-					division: "Отдел маркетинга",
-					pos: {
-						x: 300,
-						y: 450
-					}
-				}
-			],
 			list: [],
 			nodeList: {}
 		};
@@ -91,11 +53,19 @@ export default class App extends Component {
 		});
 	}
 
-	setSortBy(prop) {		
-		this.setState({
-			sortedBy: prop,
-			sortFunc: (prev, cur) => prev[prop] > cur[prop] ? 1 : -1
-		});
+	setSortBy(name) {
+		this.props.store.dispatch({ type: 'SET_SORT', name });
+
+		switch(this.props.store.getState().sort) {
+			case 'NAME':
+				this.props.store.dispatch({ type: 'SORT_BY_NAME' });
+				break;
+			case 'DIVISION':
+				this.props.store.dispatch({ type: 'SORT_BY_DIVISION' });
+				break;
+			default:
+				break;
+		};
 	}
 
 	setCurrentPoint(data) {
@@ -121,6 +91,7 @@ export default class App extends Component {
 
 	render() {
 		const currentNode = this.state.currentPoint ? this.state.nodeList[this.state.currentPoint.name] : null;
+		const storeState = this.props.store.getState();
 
 		return (
 			<div className='app'>
@@ -128,10 +99,10 @@ export default class App extends Component {
 					<Sidebar 
 						searchValue={this.state.searchValue}
 						handleChange={this.handleChange}
-						sortedBy={this.state.sortedBy}
+						sortedBy={storeState.sort}
 						setSortBy={this.setSortBy}
-						sortFunc={this.state.sortFunc}
-						list={this.state.list}
+						currentSort={storeState.sort}
+						list={storeState.employeeList}
 						point={this.state.currentPoint}
 						setCurrentPoint={this.setCurrentPoint}
 						setTransform={this.setTransform}
@@ -142,7 +113,7 @@ export default class App extends Component {
 						addToNodeList={this.addToNodeList}
 						setCurrentPoint={this.setCurrentPoint}
 						toggleModal={this.toggleModal}
-						list={this.state.list}
+						list={storeState.employeeList}
 						scale={this.state.scale}
 						currentPoint={this.state.currentPoint}
 						currentNode={currentNode}

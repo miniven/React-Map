@@ -16,7 +16,7 @@ export default class Sidebar extends Component {
 			filterResult = <SearchList 
 				setCurrentPoint={this.props.setCurrentPoint}
 				searchValue={this.props.searchValue} 
-				list={this.props.list.sort(this.props.sortFunc)}
+				list={this.props.list}
 				setTransform={this.props.setTransform}
 				point={this.props.point}
 			/>;
@@ -34,8 +34,8 @@ export default class Sidebar extends Component {
 				<div className='sidebar__block'>
 					<SearchField value={this.props.searchValue} handleChange={this.props.handleChange}/>
 					<div className='sidebar__sort-block'>
-						<SortButton type='name' sortedBy={this.props.sortedBy} setSortBy={this.props.setSortBy}>А-Я</SortButton>
-						<SortButton type='division' sortedBy={this.props.sortedBy} setSortBy={this.props.setSortBy}>Отделы</SortButton>
+						<SortButton type='NAME' sortedBy={this.props.sortedBy} setSortBy={this.props.setSortBy}>А-Я</SortButton>
+						<SortButton type='DIVISION' sortedBy={this.props.sortedBy} setSortBy={this.props.setSortBy}>Отделы</SortButton>
 					</div>
 				</div>
 				{filterResult}

@@ -4,7 +4,7 @@ import './Point.scss';
 
 export default class Point extends Component {
 	render() {
-		const pointClassName = `point ${this.props.currentPoint === this.props.data.name ? 'point--visible' : 'point--hidden'}`;
+		// const pointClassName = `point ${this.props.currentPoint === this.props.data.name ? 'point--visible' : 'point--hidden'}`;
 
 		return (
 			<g
