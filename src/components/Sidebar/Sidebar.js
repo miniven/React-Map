@@ -10,13 +10,23 @@ import SortButton from '../SortButton/SortButton';
 
 export default class Sidebar extends Component {
 	render() {
+		const { 
+			searchValue, 
+			handleChange, 
+			employeeList,
+			sortedBy,
+			setSortBy
+		} = this.props;
+
 		let filterResult = null;
 
-		if (this.props.list.length > 0) {
-			filterResult = <SearchList 
-				searchValue={this.props.searchValue} 
-				list={this.props.list}
-			/>;
+		if (employeeList.length > 0) {
+			filterResult = (
+				<SearchList 
+					searchValue={searchValue} 
+					employeeList={employeeList}
+				/>
+			);
 		} else {
 			filterResult = <p className='sidebar__message'>Кажется, сотрудник с таким именем не работает в компании. Попробуйте поискать другого.</p>;
 		};
@@ -30,20 +40,20 @@ export default class Sidebar extends Component {
 				</div>
 				<div className='sidebar__block'>
 					<SearchField 
-						value={this.props.searchValue}
-						handleChange={this.props.handleChange}
+						value={searchValue}
+						handleChange={handleChange}
 					/>
 					<div className='sidebar__sort-block'>
 						<SortButton 
 							type='NAME' 
-							sortedBy={this.props.sortedBy} 
-							setSortBy={this.props.setSortBy}
+							sortedBy={sortedBy} 
+							setSortBy={setSortBy}
 						>А-Я
 						</SortButton>
 						<SortButton 
 							type='DIVISION' 
-							sortedBy={this.props.sortedBy} 
-							setSortBy={this.props.setSortBy}
+							sortedBy={sortedBy} 
+							setSortBy={setSortBy}
 						>Отделы
 						</SortButton>
 					</div>

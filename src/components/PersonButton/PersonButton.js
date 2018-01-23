@@ -26,16 +26,18 @@ export default class PersonButton extends Component {
 	}
 
 	render() {
+		const { data, searchValue } = this.props;
+
 		return (
 			<button 
 				className='person-button'
 			>
 				{
-					this.props.searchValue === '' ? 
-						(<p className='person-button__name'>{this.props.data.name}</p>) : 
-						(this.getUnderline(this.props.data.name, this.props.searchValue))
+					searchValue === '' ? 
+						(<p className='person-button__name'>{data.name}</p>) : 
+						(this.getUnderline(data.name, searchValue))
 				}
-				<p className='person-button__post'>{this.props.data.post}</p>
+				<p className='person-button__post'>{data.post}</p>
 			</button>
 		);
 	}

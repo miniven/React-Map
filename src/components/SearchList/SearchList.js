@@ -5,11 +5,13 @@ import PersonButton from '../PersonButton/PersonButton';
 
 export default class SearchList extends Component {
 	render() {
-		const list = this.props.list.map((item, index) => {
+		const { employeeList, searchValue } = this.props;
+		
+		const list = employeeList.map((item, index) => {
 			return (
 				<li key={index} className='search-list__item'>
 					<PersonButton 
-						searchValue={this.props.searchValue} 
+						searchValue={searchValue} 
 						data={item}
 					/>
 				</li>

@@ -19,3 +19,5 @@ const LiveSearchField = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(SearchField);
+
+export default LiveSearchField;

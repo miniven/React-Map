@@ -20,12 +20,14 @@ export default class SearchField extends Component {
 	}
 
 	render() {
+		const { searchValue, handleChange } = this.props;
+		
 		return (
 			<div className={this.state.focused ? 'search search--focused' : 'search'}>
 				<input
 					className='search__input'
-					value={this.props.value}
-					onChange={this.props.handleChange}
+					value={searchValue}
+					onChange={handleChange}
 					onFocus={this.handleFocus}
 					onBlur={this.handleFocus}
 				/>

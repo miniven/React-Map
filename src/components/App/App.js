@@ -3,6 +3,8 @@ import Sidebar from '../Sidebar/Sidebar';
 // import Scheme from '../Scheme/Scheme';
 // import Modal from '../Modal/Modal';
 
+import SidebarContainer from '../../containers/SidebarContainer';
+
 import './App.scss';
 
 export default class App extends Component {
@@ -92,7 +94,8 @@ export default class App extends Component {
 
 		return (
 			<div className='app'>
-				<div className='app__sidebar'>
+				<SidebarContainer />
+				{/*<div className='app__sidebar'>
 					<Sidebar 
 						searchValue={this.state.searchValue}
 						sortedBy={storeState.sort}
@@ -103,7 +106,7 @@ export default class App extends Component {
 					/>
 				</div>
 
-				{/*<main className='app__main'>
+				<main className='app__main'>
 					<Scheme 
 						addToNodeList={this.addToNodeList}
 						setCurrentPoint={this.setCurrentPoint}

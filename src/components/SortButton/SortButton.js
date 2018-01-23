@@ -9,7 +9,9 @@ const SortButton = ({ sortedBy, type, setSortBy, children }) => {
 	return (
 		<button 
 			className={getClassName(sortedBy, type)}
-			onClick={() => setSortBy(type)}
+			onClick={() => {
+				setSortBy(type);
+			}}
 		>{children}</button>
 	);
 }

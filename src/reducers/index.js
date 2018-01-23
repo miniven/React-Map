@@ -28,7 +28,7 @@ const employeeList = (state = [], { type, name, post, division, sort }) => {
 	};
 };
 
-const sort = (state = 'NAME', { type, name }) => {
+const sortedBy = (state = 'NAME', { type, name }) => {
 	switch(type) {
 		case 'SET_SORT':
 			return name;
@@ -48,6 +48,6 @@ const searchValue = (state = '', { type, value }) => {
 
 export default combineReducers({
 	employeeList,
-	sort,
+	sortedBy,
 	searchValue
 });
