@@ -1,10 +1,16 @@
 import { connect } from 'react-redux';
 import Sidebar from '../components/Sidebar/Sidebar';
 
+const filterByName = (list, name) => {
+	return [
+		...list.filter(item => item.name.toLowerCase().indexOf(name.toLowerCase()) >= 0)
+	];
+};
+
 const mapStateToProps = state => {
 	return {
 		'searchValue': state.searchValue,
-		'employeeList': state.employeeList,
+		'employeeList': filterByName(state.employeeList, state.searchValue),
 		'sortedBy': state.sortedBy
 	};
 };
