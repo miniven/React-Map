@@ -28,12 +28,7 @@ export default class PersonButton extends Component {
 	render() {
 		return (
 			<button 
-				className='person-button' 
-				onClick={event => {
-					this.props.setCurrentPoint(this.props.data);
-					this.props.setTransform(3);
-					this.handleClick();
-				}}
+				className='person-button'
 			>
 				{
 					this.props.searchValue === '' ? 

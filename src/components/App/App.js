@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
-import Scheme from '../Scheme/Scheme';
-import Modal from '../Modal/Modal';
+// import Scheme from '../Scheme/Scheme';
+// import Modal from '../Modal/Modal';
 
 import './App.scss';
 
@@ -38,13 +38,10 @@ export default class App extends Component {
 		this.setState({
 			searchValue: event.target.value
 		});
-		this.filterList(event.target.value);
 	}
 
-	filterList(string) {
-		this.setState({
-			list: this.state.initialList.filter(item => item.name.toLowerCase().indexOf(string.toLowerCase()) >= 0)
-		});
+	filterList(employeeList) {
+		return employeeList.filter(item => item.name.toLowerCase().indexOf(this.state.searchValue.toLowerCase()) >= 0);
 	}
 
 	toggleModal() {
@@ -98,17 +95,15 @@ export default class App extends Component {
 				<div className='app__sidebar'>
 					<Sidebar 
 						searchValue={this.state.searchValue}
-						handleChange={this.handleChange}
 						sortedBy={storeState.sort}
 						setSortBy={this.setSortBy}
 						currentSort={storeState.sort}
-						list={storeState.employeeList}
-						point={this.state.currentPoint}
-						setCurrentPoint={this.setCurrentPoint}
-						setTransform={this.setTransform}
+						list={this.filterList(storeState.employeeList)}
+						handleChange={this.handleChange}
 					/>
 				</div>
-				<main className='app__main'>
+
+				{/*<main className='app__main'>
 					<Scheme 
 						addToNodeList={this.addToNodeList}
 						setCurrentPoint={this.setCurrentPoint}
@@ -124,7 +119,8 @@ export default class App extends Component {
 					toggleModal={this.toggleModal}
 					isOpen={this.state.modalIsOpen}
 					setTransform={this.setTransform}
-				/>
+				/>*/}
+
 			</div>
 		);
 	}

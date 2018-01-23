@@ -14,11 +14,8 @@ export default class Sidebar extends Component {
 
 		if (this.props.list.length > 0) {
 			filterResult = <SearchList 
-				setCurrentPoint={this.props.setCurrentPoint}
 				searchValue={this.props.searchValue} 
 				list={this.props.list}
-				setTransform={this.props.setTransform}
-				point={this.props.point}
 			/>;
 		} else {
 			filterResult = <p className='sidebar__message'>Кажется, сотрудник с таким именем не работает в компании. Попробуйте поискать другого.</p>;
@@ -32,10 +29,23 @@ export default class Sidebar extends Component {
 					</div>
 				</div>
 				<div className='sidebar__block'>
-					<SearchField value={this.props.searchValue} handleChange={this.props.handleChange}/>
+					<SearchField 
+						value={this.props.searchValue}
+						handleChange={this.props.handleChange}
+					/>
 					<div className='sidebar__sort-block'>
-						<SortButton type='NAME' sortedBy={this.props.sortedBy} setSortBy={this.props.setSortBy}>А-Я</SortButton>
-						<SortButton type='DIVISION' sortedBy={this.props.sortedBy} setSortBy={this.props.setSortBy}>Отделы</SortButton>
+						<SortButton 
+							type='NAME' 
+							sortedBy={this.props.sortedBy} 
+							setSortBy={this.props.setSortBy}
+						>А-Я
+						</SortButton>
+						<SortButton 
+							type='DIVISION' 
+							sortedBy={this.props.sortedBy} 
+							setSortBy={this.props.setSortBy}
+						>Отделы
+						</SortButton>
 					</div>
 				</div>
 				{filterResult}
