@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './SortButton.scss';
 
 const SortButton = ({ sortedBy, type, setSortBy, children }) => {

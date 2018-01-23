@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Sidebar from '../Sidebar/Sidebar';
 // import Scheme from '../Scheme/Scheme';
 // import Modal from '../Modal/Modal';
 
