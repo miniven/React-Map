@@ -11,7 +11,7 @@ export default class OfficeMap extends Component {
     this.state = {
       lat: 0,
       lng: 0,
-      zoom: 1,
+      zoom: 3,
     };
   }
 
@@ -27,11 +27,14 @@ export default class OfficeMap extends Component {
         ref={map => this.map = map}
         center={position} 
         zoom={this.state.zoom}
+        maxBounds={[[5, 0], [800, 250]]}
+        maxBoundsViscosity={1.0}
         maxZoom={5}
+        minZoom={this.state.zoom}
       >
         <ImageOverlay 
           url='/images/scheme.svg'
-          bounds={[[0, 0], [1000, 1000]]}
+          bounds={[[0, 0], [1000, 250]]}
         />
       </Map>
     )
