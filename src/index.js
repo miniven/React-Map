@@ -20,12 +20,13 @@ const store = createStore(reducer);
 
 store.dispatch({ type: 'ADD_EMPLOYEE', name: "Вениамин Трепачко", post: "Должность", division: "Отдел разработки" });
 store.dispatch({ type: 'ADD_EMPLOYEE', name: "Мария Трепачко", post: "Дизайнер", division: "Отдел дизайна" });
+store.dispatch({ type: 'ADD_EMPLOYEE', name: "Гендальф Серый", post: "Маг", division: "Отдел братства" });
 store.dispatch({ type: 'ADD_EMPLOYEE', name: "Василий Петров", post: "Маркетолог", division: "Отдел разработки" });
 store.dispatch({ type: 'SORT_BY_NAME' });
 
 render(
 	<Provider store={store}>
-		<App store={store}/>
+		<App />
 	</Provider>,
 	document.querySelector('#root')
 );
