@@ -2,3 +2,26 @@
 	height: 100%;
 	background-color: #fff;
 }
+
+.leaflet-touch .leaflet-bar {
+	border: none;
+
+	a {
+		color: #fff;
+		background-color: #2a2f34;
+		border-bottom: none;
+		transition: 0.2s ease;
+
+		&:hover {
+			opacity: 0.9;
+		}
+
+		&:first-of-type {
+			margin-bottom: 2px;
+		}
+	}
+
+	a.leaflet-disabled {
+		opacity: 0.5;
+	}
+}
