@@ -5,10 +5,18 @@ import 'leaflet/dist/leaflet.css';
 import './OfficeMap.scss';
 
 export default class OfficeMap extends Component {
-  state = {
-    lat: 0,
-    lng: 0,
-    zoom: 20,
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      lat: 0,
+      lng: 0,
+      zoom: 1,
+    };
+  }
+
+  componentDidMount() {
+    console.log(this.map.leafletElement.getBounds());
   }
 
   render() {
@@ -16,26 +24,15 @@ export default class OfficeMap extends Component {
 
     return (
       <Map 
+        ref={map => this.map = map}
         center={position} 
-        zoom={this.state.zoom} 
-        bounds={[[0, 0], [1000, 1000]]}
+        zoom={this.state.zoom}
+        maxZoom={5}
       >
         <ImageOverlay 
           url='/images/scheme.svg'
           bounds={[[0, 0], [1000, 1000]]}
         />
-        {/*
-                <TileLayer
-                  attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />*/}
-        <Marker position={position}>
-          <Popup>
-            <span>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </span>
-          </Popup>
-        </Marker>
       </Map>
     )
   }
