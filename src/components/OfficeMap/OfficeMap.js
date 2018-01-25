@@ -12,7 +12,10 @@ export default class OfficeMap extends Component {
     // console.log(this.map.leafletElement.getBounds());
 
     this.state = {
-      'zoom': 3
+      'zoom': 3,
+      'mapMaxBounds': [[5, 0], [500, 250]],
+      'imageBounds': [[0, 0], [1000, 250]],
+      'imageSrc': '/images/scheme.svg'
     }
 
     this.setCurrentZoom = this.setCurrentZoom.bind(this);
@@ -40,10 +43,14 @@ export default class OfficeMap extends Component {
           position={[data.pos[1], data.pos[0]]}
           onClick={event => console.log(event)}
         >
-          <div className='leaflet__marker-inner'>
+          <div className='leaflet__marker-inner' style={{'transform': `scale(${this.state.zoom / 5})`}}>
             <img className='leaflet__marker-image' src={data.img} alt={data.name} />
-            <p className='leaflet__marker-text leaflet__marker-text--name'>{data.name}</p>
-            <p className='leaflet__marker-text leaflet__marker-text--post'>{data.post}</p>
+            <div 
+              className={`leaflet__marker-content ${this.state.zoom < 5 ? 'leaflet__marker-content--hidden' : ''}`}
+            >
+              <p className='leaflet__marker-text leaflet__marker-text--name'>{data.name}</p>
+              <p className='leaflet__marker-text leaflet__marker-text--post'>{data.post}</p>
+            </div>
           </div>
         </DivIcon>
     );
@@ -55,7 +62,7 @@ export default class OfficeMap extends Component {
         ref={map => this.map = map}
         center={[0, 0]} 
         zoom={3}
-        maxBounds={[[5, 0], [500, 250]]}
+        maxBounds={this.state.mapMaxBounds}
         maxBoundsViscosity={1.5}
         maxZoom={5}
         minZoom={3}
@@ -63,11 +70,11 @@ export default class OfficeMap extends Component {
         onZoomstart={this.getZoom}
       >
         <ImageOverlay 
-          url='/images/scheme.svg'
-          bounds={[[0, 0], [1000, 250]]}
+          url={this.state.imageSrc}
+          bounds={this.state.imageBounds}
         />
 
-        {this.state.zoom >= 5 ? this.props.employeeList.map(data => this.renderMarker(data)) : null}
+        {this.props.employeeList.map(data => this.renderMarker(data))}
       </Map>
     )
   }
