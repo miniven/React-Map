@@ -16,6 +16,7 @@ export default class OfficeMap extends Component {
     }
 
     this.setCurrentZoom = this.setCurrentZoom.bind(this);
+    this.getZoom = this.getZoom.bind(this);
   }
 
   setCurrentZoom(event) {
@@ -26,14 +27,18 @@ export default class OfficeMap extends Component {
     });
   }
 
+  getZoom(event) {
+    console.log(event.target.getZoom());
+  }
+
   renderMarker(data) {
     return (
         <DivIcon 
           key={data.name}
           className='leaflet__marker'
           iconSize='auto'
-          position={[data.pos.x, data.pos.y]}
-          onClick={() => alert('hello')}
+          position={[data.pos[1], data.pos[0]]}
+          onClick={event => console.log(event)}
         >
           <div className='leaflet__marker-inner'>
             <img className='leaflet__marker-image' src={data.img} alt={data.name} />
@@ -55,6 +60,7 @@ export default class OfficeMap extends Component {
         maxZoom={5}
         minZoom={3}
         onZoom={this.setCurrentZoom}
+        onZoomstart={this.getZoom}
       >
         <ImageOverlay 
           url='/images/scheme.svg'

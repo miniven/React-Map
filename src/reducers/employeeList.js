@@ -1,4 +1,4 @@
-const employeeList = (state = [], { type, name, post, division, sort, posX, posY }) => {
+const employeeList = (state = [], { type, name, post, division, sort, pos }) => {
 	switch(type) {
 		case 'ADD_EMPLOYEE':
 			return [
@@ -8,10 +8,7 @@ const employeeList = (state = [], { type, name, post, division, sort, posX, posY
 					name,
 					post,
 					division,
-					pos: {
-						x: posX,
-						y: posY
-					}
+					pos
 				}
 			];
 		case 'SORT_BY_NAME':

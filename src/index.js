@@ -23,32 +23,28 @@ store.dispatch({
 	name: "Вениамин Трепачко", 
 	post: "Крутой разработчик", 
 	division: "Отдел разработки", 
-	posX: 50, 
-	posY: 50 
+	pos: [47, 71] 
 });
 store.dispatch({ 
 	type: 'ADD_EMPLOYEE', 
 	name: "Мария Трепачко", 
 	post: "Дизайнер", 
 	division: "Отдел дизайна", 
-	posX: 50, 
-	posY: 60 
+	pos: [62, 68.2] 
 });
 store.dispatch({ 
 	type: 'ADD_EMPLOYEE', 
 	name: "Гендальф Серый", 
 	post: "Маг", 
 	division: "Отдел братства", 
-	posX: 50, 
-	posY: 70 
+	pos: [70, 70] 
 });
 store.dispatch({ 
 	type: 'ADD_EMPLOYEE', 
 	name: "Василий Петров", 
 	post: "Маркетолог", 
 	division: "Отдел разработки", 
-	posX: 50, 
-	posY: 80 
+	pos: [80, 70] 
 });
 store.dispatch({ type: 'SORT_BY_NAME' });
 
@@ -58,6 +54,3 @@ render(
 	</Provider>,
 	document.querySelector('#root')
 );
-
-// renderApp();
-// store.subscribe(renderApp);

@@ -2,12 +2,17 @@
 	&__marker {
 		width: auto;
 		height: auto;
+
+		&--hidden {
+			display: none;
+		}
 	}
 
 	&__marker-inner {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		animation: Pop 0.4s;
 	}
 
 	&__marker-image {
@@ -65,5 +70,17 @@
 
 	a.leaflet-disabled {
 		opacity: 0.5;
+	}
+}
+
+@keyframes Pop {
+	from {
+		transform: scale(0.9);
+		opacity: 0;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 1;
 	}
 }
