@@ -1,3 +1,45 @@
+.leaflet {
+	&__marker {
+		width: auto;
+		height: auto;
+	}
+
+	&__marker-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__marker-image {
+		display: block;
+		width: 80px;
+		margin: 5px 0;
+		box-shadow: 0 5px 10px -5px transparentize(#000, 0.45);
+	}
+
+	&__marker-text {
+		display: inline-block;
+		margin: 3px 0;
+		padding: 3px 7px;
+		text-align: center;
+		line-height: 1.4em;
+		white-space: nowrap;
+		color: #000;
+		background-color: #fff;
+		box-shadow: 0 5px 10px -5px transparentize(#000, 0.45);
+
+		&--name {
+			font-size: 18px;
+			font-weight: 700;
+		}
+
+		&--post {
+			font-size: 14px;
+			font-weight: 400;
+		}
+	}
+}
+
 .leaflet-container {
 	height: 100%;
 	background-color: #fff;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import OfficeMap from '../OfficeMap/OfficeMap';
+import OfficeMapContainer from '../../containers/OfficeMapContainer';
 import SidebarContainer from '../../containers/SidebarContainer';
 
 import './App.scss';
@@ -13,7 +13,7 @@ export default class App extends Component {
 					<SidebarContainer />
 				</div>
 				<main className='app__main'>
-					<OfficeMap />
+					<OfficeMapContainer />
 					{/*<Scheme 
 						addToNodeList={this.addToNodeList}
 						setCurrentPoint={this.setCurrentPoint}

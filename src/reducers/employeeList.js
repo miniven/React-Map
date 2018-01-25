@@ -1,15 +1,16 @@
-const employeeList = (state = [], { type, name, post, division, sort }) => {
+const employeeList = (state = [], { type, name, post, division, sort, posX, posY }) => {
 	switch(type) {
 		case 'ADD_EMPLOYEE':
 			return [
 				...state,
 				{
+					img: 'https://www.talaka.org/assets/img/userpic-fallback.svg',
 					name,
 					post,
 					division,
 					pos: {
-						x: 200,
-						y: 250
+						x: posX,
+						y: posY
 					}
 				}
 			];

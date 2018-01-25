@@ -18,10 +18,38 @@ import reducer from './reducers';
 
 const store = createStore(reducer);
 
-store.dispatch({ type: 'ADD_EMPLOYEE', name: "Вениамин Трепачко", post: "Должность", division: "Отдел разработки" });
-store.dispatch({ type: 'ADD_EMPLOYEE', name: "Мария Трепачко", post: "Дизайнер", division: "Отдел дизайна" });
-store.dispatch({ type: 'ADD_EMPLOYEE', name: "Гендальф Серый", post: "Маг", division: "Отдел братства" });
-store.dispatch({ type: 'ADD_EMPLOYEE', name: "Василий Петров", post: "Маркетолог", division: "Отдел разработки" });
+store.dispatch({ 
+	type: 'ADD_EMPLOYEE', 
+	name: "Вениамин Трепачко", 
+	post: "Крутой разработчик", 
+	division: "Отдел разработки", 
+	posX: 50, 
+	posY: 50 
+});
+store.dispatch({ 
+	type: 'ADD_EMPLOYEE', 
+	name: "Мария Трепачко", 
+	post: "Дизайнер", 
+	division: "Отдел дизайна", 
+	posX: 50, 
+	posY: 60 
+});
+store.dispatch({ 
+	type: 'ADD_EMPLOYEE', 
+	name: "Гендальф Серый", 
+	post: "Маг", 
+	division: "Отдел братства", 
+	posX: 50, 
+	posY: 70 
+});
+store.dispatch({ 
+	type: 'ADD_EMPLOYEE', 
+	name: "Василий Петров", 
+	post: "Маркетолог", 
+	division: "Отдел разработки", 
+	posX: 50, 
+	posY: 80 
+});
 store.dispatch({ type: 'SORT_BY_NAME' });
 
 render(
