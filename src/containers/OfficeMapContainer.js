@@ -3,12 +3,26 @@ import OfficeMap from '../components/OfficeMap/OfficeMap';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		'employeeList': state.employeeList
+		'employeeList': state.employeeList,
+		'officeMap': state.officeMap
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		'setZoom': value => {
+			dispatch({ type: 'SET_MAP_ZOOM', zoom: value });
+		},
+
+		'setCoords': coords => {
+			dispatch({ type: 'SET_MAP_ZOOM', coords });
+		}
 	};
 };
 
 const OfficeMapContainer = connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(OfficeMap);
 
 export default OfficeMapContainer;

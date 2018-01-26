@@ -11,42 +11,34 @@ export default class OfficeMap extends Component {
 
     // console.log(this.map.leafletElement.getBounds());
 
-    this.state = {
-      'zoom': 3,
-      'mapMaxBounds': [[5, 0], [500, 250]],
-      'imageBounds': [[0, 0], [1000, 250]],
-      'imageSrc': '/images/scheme.svg'
-    }
-
     this.setCurrentZoom = this.setCurrentZoom.bind(this);
-    this.getZoom = this.getZoom.bind(this);
+    this.focusMarker = this.focusMarker.bind(this);
   }
 
   setCurrentZoom(event) {
-    const value = event.target.getZoom();
-
-    this.setState({
-      'zoom': value
-    });
+    this.props.setZoom(event.target.getZoom());
   }
 
-  getZoom(event) {
-    console.log(event.target.getZoom());
+  focusMarker(zoom, coords) {
+    this.props.setZoom(zoom);
+    this.props.setCoords(coords);
   }
 
   renderMarker(data) {
+    const position = [data.pos[1], data.pos[0]];
+
     return (
         <DivIcon 
           key={data.name}
           className='leaflet__marker'
           iconSize='auto'
-          position={[data.pos[1], data.pos[0]]}
-          onClick={event => console.log(event)}
+          position={position}
+          onClick={() => this.focusMarker(5, position)}
         >
-          <div className='leaflet__marker-inner' style={{'transform': `scale(${this.state.zoom / 5})`}}>
+          <div className='leaflet__marker-inner' style={{'transform': `scale(${this.props.officeMap.zoom / 5})`}}>
             <img className='leaflet__marker-image' src={data.img} alt={data.name} />
             <div 
-              className={`leaflet__marker-content ${this.state.zoom < 5 ? 'leaflet__marker-content--hidden' : ''}`}
+              className={`leaflet__marker-content ${this.props.officeMap.zoom < 5 ? 'leaflet__marker-content--hidden' : ''}`}
             >
               <p className='leaflet__marker-text leaflet__marker-text--name'>{data.name}</p>
               <p className='leaflet__marker-text leaflet__marker-text--post'>{data.post}</p>
@@ -60,18 +52,17 @@ export default class OfficeMap extends Component {
     return (
       <Map 
         ref={map => this.map = map}
-        center={[0, 0]} 
-        zoom={3}
-        maxBounds={this.state.mapMaxBounds}
+        center={this.props.officeMap.coords} 
+        zoom={this.props.officeMap.zoom}
+        maxBounds={this.props.officeMap.mapMaxBounds}
         maxBoundsViscosity={1.5}
         maxZoom={5}
         minZoom={3}
         onZoom={this.setCurrentZoom}
-        onZoomstart={this.getZoom}
       >
         <ImageOverlay 
-          url={this.state.imageSrc}
-          bounds={this.state.imageBounds}
+          url={this.props.officeMap.imageSrc}
+          bounds={this.props.officeMap.imageBounds}
         />
 
         {this.props.employeeList.map(data => this.renderMarker(data))}

@@ -47,6 +47,8 @@ store.dispatch({
 	pos: [80, 70] 
 });
 store.dispatch({ type: 'SORT_BY_NAME' });
+store.dispatch({ type: 'SET_MAP_ZOOM', zoom: 3 });
+store.dispatch({ type: 'SET_MAP_COORDS', coords: [0, 0] });
 
 render(
 	<Provider store={store}>
