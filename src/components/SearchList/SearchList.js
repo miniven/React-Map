@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SearchList.scss';
 
-import PersonButton from '../PersonButton/PersonButton';
+import PersonButtonContainer from '../../containers/PersonButtonContainer';
 
 export default class SearchList extends Component {
 	render() {
@@ -10,7 +10,7 @@ export default class SearchList extends Component {
 		const list = employeeList.map((item, index) => {
 			return (
 				<li key={index} className='search-list__item'>
-					<PersonButton 
+					<PersonButtonContainer 
 						searchValue={searchValue} 
 						data={item}
 					/>

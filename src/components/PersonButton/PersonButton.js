@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import './PersonButton.scss';
 
 export default class PersonButton extends Component {
+	constructor(props) {
+		super(props);
+
+		this.focusMarker = this.focusMarker.bind(this);
+	}
+
 	getUnderline(string, sub) {
 		const startIndex = string.toLowerCase().indexOf(sub.toLowerCase());
 		const endIndex = startIndex + sub.length;
@@ -18,11 +24,9 @@ export default class PersonButton extends Component {
 		);
 	}
 
-	handleClick() {
-		// const node = this.props.point.node;
-		// const pos = node.getBBox();
-
-		// console.log(node);
+	focusMarker(zoom, coords) {
+		this.props.setZoom(zoom);
+		this.props.setCoords(coords);
 	}
 
 	render() {
@@ -31,6 +35,7 @@ export default class PersonButton extends Component {
 		return (
 			<button 
 				className='person-button'
+				onClick={() => this.focusMarker(5, data.pos)}
 			>
 				{
 					searchValue === '' ? 
