@@ -35,10 +35,10 @@ export default class OfficeMap extends Component {
           position={position}
           onClick={() => this.focusMarker(5, position)}
         >
-          <div className='leaflet__marker-inner' style={{'transform': `scale(${this.props.officeMap.zoom / 5})`}}>
+          <div className='leaflet__marker-inner' style={{'transform': `scale(${/*this.props.officeMap.zoom / 5*/1})`}}>
             <img className='leaflet__marker-image' src={data.img} alt={data.name} />
             <div 
-              className={`leaflet__marker-content ${this.props.officeMap.zoom < 5 ? 'leaflet__marker-content--hidden' : ''}`}
+              className='leaflet__marker-content'
             >
               <p className='leaflet__marker-text leaflet__marker-text--name'>{data.name}</p>
               <p className='leaflet__marker-text leaflet__marker-text--post'>{data.post}</p>

@@ -4,7 +4,7 @@ const officeMap = (
 		'imageBounds': [[0, 0], [1000, 250]],
 		'imageSrc': '/images/scheme.svg'
 	}, 
-	{ type, zoom, coords = [] }
+	{ type, zoom, coords = [0, 0] }
 ) => {
 	switch(type) {
 		case 'SET_MAP_ZOOM':

@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
 		},
 
 		'setCoords': coords => {
-			dispatch({ type: 'SET_MAP_ZOOM', coords });
+			dispatch({ type: 'SET_MAP_COORDS', coords });
 		}
 	};
 };
