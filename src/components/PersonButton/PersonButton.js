@@ -32,10 +32,12 @@ export default class PersonButton extends Component {
 	render() {
 		const { data, searchValue } = this.props;
 
+		console.log(data);
+
 		return (
 			<button 
 				className='person-button'
-				onClick={() => this.focusMarker(5, data.pos)}
+				onClick={() => this.focusMarker(5, [data.pos[0], data.pos[1]])}
 			>
 				{
 					searchValue === '' ? 

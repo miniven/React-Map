@@ -25,7 +25,7 @@ export default class OfficeMap extends Component {
   }
 
   renderMarker(data) {
-    const position = [data.pos[1], data.pos[0]];
+    const position = [data.pos[0], data.pos[1]];
 
     return (
         <DivIcon 
