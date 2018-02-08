@@ -23,14 +23,14 @@ store.dispatch({
 	name: "Вениамин Трепачко", 
 	post: "Крутой разработчик", 
 	division: "Отдел разработки", 
-	pos: [47, 71] 
+	pos: [71, 47] 
 });
 store.dispatch({ 
 	type: 'ADD_EMPLOYEE', 
 	name: "Мария Трепачко", 
 	post: "Дизайнер", 
 	division: "Отдел дизайна", 
-	pos: [62, 68.2] 
+	pos: [68.2, 62] 
 });
 store.dispatch({ 
 	type: 'ADD_EMPLOYEE', 
@@ -44,7 +44,7 @@ store.dispatch({
 	name: "Василий Петров", 
 	post: "Маркетолог", 
 	division: "Отдел разработки", 
-	pos: [80, 70] 
+	pos: [70, 80] 
 });
 store.dispatch({ type: 'SORT_BY_NAME' });
 store.dispatch({ type: 'SET_MAP_ZOOM', zoom: 3 });
