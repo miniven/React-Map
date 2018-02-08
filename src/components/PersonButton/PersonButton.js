@@ -32,8 +32,6 @@ export default class PersonButton extends Component {
 	render() {
 		const { data, searchValue } = this.props;
 
-		console.log(data);
-
 		return (
 			<button 
 				className='person-button'
