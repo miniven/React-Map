@@ -19,9 +19,11 @@ export default class OfficeMap extends Component {
     this.props.setZoom(event.target.getZoom());
   }
 
-  focusMarker(zoom, coords) {
+  focusMarker(zoom, coords, data) {
     this.props.setZoom(zoom);
     this.props.setCoords(coords);
+    this.props.setModalData(data);
+    this.props.toggleModal();
   }
 
   renderMarker(data) {
@@ -33,7 +35,7 @@ export default class OfficeMap extends Component {
           className='leaflet__marker'
           iconSize='auto'
           position={position}
-          onClick={() => this.focusMarker(5, position)}
+          onClick={() => this.focusMarker(5, position, data)}
         >
           <div className='leaflet__marker-inner' style={{'transform': `scale(${/*this.props.officeMap.zoom / 5*/1})`}}>
             <img className='leaflet__marker-image' src={data.img} alt={data.name} />

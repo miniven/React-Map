@@ -4,10 +4,10 @@ import './Modal.scss';
 
 export default class Modal extends Component {
 	render() {
-		if (!this.props.point) return null;
+		if (!this.props.data) return null;
 
-		const data = this.props.point;
-		const modalClassName = `modal ${this.props.isOpen ? 'modal--open' : 'modal--closed'}`;
+		const data = this.props.data;
+		const modalClassName = `modal ${this.props.open ? 'modal--open' : 'modal--closed'}`;
 		const photoSrc = data.photo ? data.photo : 'https://www.matchmyemail.com/wp-content/themes/nrg/images/userpic.png';
 
 		return (
@@ -17,13 +17,15 @@ export default class Modal extends Component {
 			>
 				<dialog 
 					className='modal__box' 
-					open={this.props.isOpen}
+					open={this.props.open}
 					onClick={event => event.stopPropagation()}
 				>
-					<button className='modal__close' onClick={event => {
-						this.props.toggleModal();
-						this.props.setTransform(1);
-					}}>X</button>
+					<button 
+						className='modal__close' 
+						onClick={event => {
+							this.props.toggleModal();
+						}}
+					></button>
 					<div className='modal__row modal__row--half'>
 						<img className='modal__userpic' src={photoSrc} alt={data.name} />
 					</div>

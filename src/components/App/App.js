@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import OfficeMapContainer from '../../containers/OfficeMapContainer';
 import SidebarContainer from '../../containers/SidebarContainer';
+import ModalContainer from '../../containers/ModalContainer';
 
 import './App.scss';
 
@@ -14,16 +15,8 @@ export default class App extends Component {
 				</div>
 				<main className='app__main'>
 					<OfficeMapContainer />
-					{/*<Scheme 
-						addToNodeList={this.addToNodeList}
-						setCurrentPoint={this.setCurrentPoint}
-						toggleModal={this.toggleModal}
-						list={storeState.employeeList}
-						scale={this.state.scale}
-						currentPoint={this.state.currentPoint}
-						currentNode={currentNode}
-					/>*/}
 				</main>
+					<ModalContainer />
 				{/*<Modal 
 					point={this.state.currentPoint}
 					toggleModal={this.toggleModal}

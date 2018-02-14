@@ -16,6 +16,14 @@ const mapDispatchToProps = dispatch => {
 
 		'setCoords': coords => {
 			dispatch({ type: 'SET_MAP_COORDS', coords });
+		},
+
+		'toggleModal': () => {
+			dispatch({ type: 'TOGGLE_MODAL_VISIBILITY' });
+		},
+
+		'setModalData': data => {
+			dispatch({ type: 'SET_MODAL_DATA', data });
 		}
 	};
 };

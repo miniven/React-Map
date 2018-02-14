@@ -27,8 +27,8 @@ store.dispatch({
 });
 store.dispatch({ 
 	type: 'ADD_EMPLOYEE', 
-	name: "Мария Трепачко", 
-	post: "Дизайнер", 
+	name: "Фродо Беггинс", 
+	post: "Хоббит", 
 	division: "Отдел дизайна", 
 	pos: [68.2, 62] 
 });
@@ -45,6 +45,13 @@ store.dispatch({
 	post: "Маркетолог", 
 	division: "Отдел разработки", 
 	pos: [70, 80] 
+});
+store.dispatch({ 
+	type: 'ADD_EMPLOYEE', 
+	name: "Оби Ван Кеноби", 
+	post: "Магистр-джедай", 
+	division: "Отдел борьбы с ситхами", 
+	pos: [74, 84] 
 });
 store.dispatch({ type: 'SORT_BY_NAME' });
 store.dispatch({ type: 'SET_MAP_ZOOM', zoom: 3 });
