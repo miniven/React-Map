@@ -18,39 +18,49 @@ import reducer from './reducers';
 
 const store = createStore(reducer);
 
+store.dispatch({ type: 'ADD_DEPARTMENT', name: 'Отдел разработки', employeeIDs: [1, 4] });
+store.dispatch({ type: 'ADD_DEPARTMENT', name: 'Отдел дизайна', employeeIDs: [2] });
+store.dispatch({ type: 'ADD_DEPARTMENT', name: 'Отдел братства', employeeIDs: [3] });
+store.dispatch({ type: 'ADD_DEPARTMENT', name: 'Отдел борьбы с ситхами', employeeIDs: [5] });
+
 store.dispatch({ 
-	type: 'ADD_EMPLOYEE', 
-	name: "Вениамин Трепачко", 
-	post: "Крутой разработчик", 
-	division: "Отдел разработки", 
+	type: 'ADD_EMPLOYEE',
+	id: '1',
+	name: 'Вениамин Трепачко', 
+	post: 'Крутой разработчик', 
+	division: 'Отдел разработки', 
 	pos: [71, 47] 
 });
 store.dispatch({ 
-	type: 'ADD_EMPLOYEE', 
-	name: "Фродо Беггинс", 
-	post: "Хоббит", 
-	division: "Отдел дизайна", 
+	type: 'ADD_EMPLOYEE',
+	id: '2',
+	name: 'Фродо Беггинс', 
+	post: 'Хоббит', 
+	division: 'Отдел дизайна', 
 	pos: [68.2, 62] 
 });
 store.dispatch({ 
-	type: 'ADD_EMPLOYEE', 
-	name: "Гендальф Серый", 
-	post: "Маг", 
-	division: "Отдел братства", 
+	type: 'ADD_EMPLOYEE',
+	id: '3',
+	name: 'Гендальф Серый', 
+	post: 'Маг', 
+	division: 'Отдел братства', 
 	pos: [70, 70] 
 });
 store.dispatch({ 
-	type: 'ADD_EMPLOYEE', 
-	name: "Василий Петров", 
-	post: "Маркетолог", 
-	division: "Отдел разработки", 
+	type: 'ADD_EMPLOYEE',
+	id: '4',
+	name: 'Василий Петров', 
+	post: 'Маркетолог', 
+	division: 'Отдел разработки', 
 	pos: [70, 80] 
 });
 store.dispatch({ 
-	type: 'ADD_EMPLOYEE', 
-	name: "Оби Ван Кеноби", 
-	post: "Магистр-джедай", 
-	division: "Отдел борьбы с ситхами", 
+	type: 'ADD_EMPLOYEE',
+	id: '5',
+	name: 'Оби Ван Кеноби', 
+	post: 'Магистр-джедай', 
+	division: 'Отдел борьбы с ситхами', 
 	pos: [74, 84] 
 });
 store.dispatch({ type: 'SORT_BY_NAME' });

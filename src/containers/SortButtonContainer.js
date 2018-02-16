@@ -12,16 +12,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 		'setSortBy': name => {
 			dispatch({ type: 'SET_SORT', name });
 
-			switch(name) {
-				case 'NAME':
-					dispatch({ type: 'SORT_BY_NAME' });
-					break;
-				case 'DIVISION':
-					dispatch({ type: 'SORT_BY_DIVISION' });
-					break;
-				default:
-					break;
-			};
+			// switch(name) {
+			// 	case 'NAME':
+			// 		dispatch({ type: 'SORT_BY_NAME' });
+			// 		break;
+			// 	case 'DIVISION':
+			// 		dispatch({ type: 'SORT_BY_DIVISION' });
+			// 		break;
+			// 	default:
+			// 		break;
+			// };
 		}
 	};
 };

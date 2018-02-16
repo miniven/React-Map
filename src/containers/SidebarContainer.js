@@ -9,8 +9,10 @@ const filterByName = (list, name) => {
 
 const mapStateToProps = state => {
 	return {
+		'sortedBy': state.sortedBy,
 		'searchValue': state.searchValue,
-		'employeeList': filterByName(state.employeeList, state.searchValue)
+		'employeeList': filterByName(state.employeeList, state.searchValue),
+		'departments': state.departments
 	};
 };
 
@@ -18,6 +20,12 @@ const mapDispatchToProps = dispatch => {
 	return {
 		'handleChange': event => {
 			dispatch({ type: 'SET_SEARCH_VALUE', value: event.target.value });
+		},
+		'addPoint': (name) => {
+			dispatch({ type: 'ADD_DEPARTMENT', name });
+		},
+		addEmployee: (name, employeeID) => {
+			dispatch({ type: 'ADD_EMPLOYEE_TO_DEPARTMENT', name, employeeID });
 		}
 	};
 };
