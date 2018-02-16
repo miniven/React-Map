@@ -7,20 +7,37 @@ import PersonButtonContainer from '../../containers/PersonButtonContainer';
 export default class SearchList extends Component {
 	render() {
 		const { employeeList, searchValue, departments, sortedBy } = this.props;
-		
-		const fullList = employeeList.map((item, index) => {
-			return (
-				<li key={index} className='search-list__item'>
-					<PersonButtonContainer 
-						searchValue={searchValue} 
-						data={item}
-					/>
-				</li>
-			);
-		});
 
-		const departmentsList = Object.keys(departments).map(name => {
-			const employeeIDs = departments[name];
+		const getGroups = sorting => {
+			let key;
+
+			switch(sorting) {
+				case 'NAME':
+					key = 'name';
+					break;
+				case 'DIVISION':
+					key = 'division';
+					break;
+				case 'POST':
+					key = 'post';
+					break;
+				default:
+					key = 'name';
+					break;
+			};
+
+			return employeeList.reduce((result, current) => {
+				return {
+					...result,
+					[current[key]]: result[current[key]] !== undefined ? [...result[current[key]], current.id] : [current.id]
+				};
+			}, {});
+		};
+
+		const groups = getGroups(sortedBy);
+
+		const fullList = Object.keys(groups).map(name => {
+			const employeeIDs = groups[name];
 
 			return (
 				<li key={name} className='department'>
@@ -28,7 +45,7 @@ export default class SearchList extends Component {
 					<ul className='department__list'>
 						{
 							employeeIDs.map(employeeID => {
-								const employee = employeeList.find(employee => Number(employee.id) === employeeID);
+								const employee = employeeList.find(employee => Number(employee.id) === Number(employeeID));
 
 								return (
 									employee ? (
@@ -48,7 +65,7 @@ export default class SearchList extends Component {
 		});
 
 		return (
-			<ul className='search-list'>{ sortedBy === 'DIVISION' ? departmentsList : fullList }</ul>
+			<ul className='search-list'>{fullList}</ul>
 		);
 	}
 }
