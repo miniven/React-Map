@@ -25,7 +25,8 @@
 
 	&__sort-block {
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
+		margin: 0 -5px;
 	}
 
 	&__message {

@@ -1,10 +1,11 @@
 .sort-button {
-  flex: 1 1 33%;
+  flex: 0 1 0%;
 	margin: 0 5px;
 	padding: 15px 5px;
 	font-size: 1em;
 	font-family: $font-main;
 	font-weight: 500;
+	white-space: nowrap;
 	color: #fff;
 	background-color: transparent;
 	border: none;

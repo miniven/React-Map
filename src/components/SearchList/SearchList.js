@@ -26,6 +26,15 @@ export default class SearchList extends Component {
 					break;
 			};
 
+			if (sorting === 'NAME') {
+				return employeeList.reduce((result, current) => {
+					return {
+						...result,
+						[current[key][0]]: result[current[key][0]] !== undefined ? [...result[current[key][0]], current.id] : [current.id]
+					};
+				}, {});
+			};
+
 			return employeeList.reduce((result, current) => {
 				return {
 					...result,
