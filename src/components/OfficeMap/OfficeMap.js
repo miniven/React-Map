@@ -9,7 +9,6 @@ export default class OfficeMap extends Component {
   constructor(props) {
     super(props);
 
-    // console.log(this.map.leafletElement.getBounds());
     this.state = {
       markersHidden: true
     };
@@ -58,8 +57,7 @@ export default class OfficeMap extends Component {
           onClick={() => this.focusMarker(5, position, data)}
         >
           <div 
-            className={className} 
-            style={{'transform': `scale(${/*this.props.officeMap.zoom / 5*/1})`}}
+            className={className}
           >
             <img className='leaflet__marker-image' src={data.img} alt={data.name} />
             <div 

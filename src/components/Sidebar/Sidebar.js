@@ -8,16 +8,15 @@ import SearchField from '../SearchField/SearchField';
 import SearchList from '../SearchList/SearchList';
 import SortButtonContainer from '../../containers/SortButtonContainer';
 
-const Sidebar = ({ searchValue, handleChange, employeeList, departments, sortedBy }) => {
+const Sidebar = ({ searchValue, handleChange, getGroups, sortedBy, employeeList }) => {
 	let filterResult = null;
 
 	if (employeeList.length > 0) {
 		filterResult = (
 			<SearchList 
-				searchValue={searchValue} 
+				searchValue={searchValue}
 				employeeList={employeeList}
-				departments={departments}
-				sortedBy={sortedBy}
+				groups={getGroups(employeeList, sortedBy)}
 			/>
 		);
 	} else {

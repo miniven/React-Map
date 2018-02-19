@@ -18,11 +18,6 @@ import reducer from './reducers';
 
 const store = createStore(reducer);
 
-store.dispatch({ type: 'ADD_DEPARTMENT', name: 'Отдел разработки', employeeIDs: [1, 4] });
-store.dispatch({ type: 'ADD_DEPARTMENT', name: 'Отдел дизайна', employeeIDs: [2] });
-store.dispatch({ type: 'ADD_DEPARTMENT', name: 'Отдел братства', employeeIDs: [3] });
-store.dispatch({ type: 'ADD_DEPARTMENT', name: 'Отдел борьбы с ситхами', employeeIDs: [5] });
-
 store.dispatch({ 
 	type: 'ADD_EMPLOYEE',
 	id: '1',
@@ -52,7 +47,7 @@ store.dispatch({
 	id: '4',
 	name: 'Василий Петров', 
 	post: 'Маркетолог', 
-	division: 'Отдел разработки', 
+	division: 'Отдел братства', 
 	pos: [70, 80] 
 });
 store.dispatch({ 

@@ -12,20 +12,50 @@ const mapStateToProps = state => {
 		'sortedBy': state.sortedBy,
 		'searchValue': state.searchValue,
 		'employeeList': filterByName(state.employeeList, state.searchValue),
-		'departments': state.departments
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		'handleChange': event => {
+		handleChange(event) {
 			dispatch({ type: 'SET_SEARCH_VALUE', value: event.target.value });
 		},
-		'addPoint': (name) => {
+		addPoint(name) {
 			dispatch({ type: 'ADD_DEPARTMENT', name });
 		},
-		addEmployee: (name, employeeID) => {
-			dispatch({ type: 'ADD_EMPLOYEE_TO_DEPARTMENT', name, employeeID });
+		getGroups(employeeList, sorting) {
+			let key;
+
+			switch(sorting) {
+				case 'NAME':
+					key = 'name';
+					break;
+				case 'DIVISION':
+					key = 'division';
+					break;
+				case 'POST':
+					key = 'post';
+					break;
+				default:
+					key = 'name';
+					break;
+			};
+
+			if (sorting === 'NAME') {
+				return employeeList.reduce((result, current) => {
+					return {
+						...result,
+						[current[key][0]]: result[current[key][0]] !== undefined ? [...result[current[key][0]], current.id] : [current.id]
+					};
+				}, {});
+			};
+
+			return employeeList.reduce((result, current) => {
+				return {
+					...result,
+					[current[key]]: result[current[key]] !== undefined ? [...result[current[key]], current.id] : [current.id]
+				};
+			}, {});
 		}
 	};
 };
