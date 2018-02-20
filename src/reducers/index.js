@@ -5,11 +5,13 @@ import sortedBy from './sortedBy';
 import searchValue from './searchValue';
 import officeMap from './officeMap';
 import modal from './modal';
+import filter from './filter';
 
 export default combineReducers({
 	employeeList,
 	sortedBy,
 	searchValue,
 	officeMap,
-	modal
+	modal,
+	filter
 });

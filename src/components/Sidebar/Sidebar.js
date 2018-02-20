@@ -8,7 +8,7 @@ import SearchField from '../SearchField/SearchField';
 import SearchList from '../SearchList/SearchList';
 import SortButtonContainer from '../../containers/SortButtonContainer';
 
-const Sidebar = ({ searchValue, handleChange, getGroups, sortedBy, employeeList }) => {
+const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, sortedBy, employeeList }) => {
 	let filterResult = null;
 
 	if (employeeList.length > 0) {
@@ -31,6 +31,8 @@ const Sidebar = ({ searchValue, handleChange, getGroups, sortedBy, employeeList 
 				</div>
 			</div>
 			<div className='sidebar__block'>
+				<button onClick={() => setFilter('name')}>by name</button>
+				<button onClick={() => setFilter('post')}>by post</button>
 				<SearchField 
 					value={searchValue}
 					handleChange={handleChange}

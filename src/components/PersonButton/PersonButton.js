@@ -8,7 +8,7 @@ export default class PersonButton extends Component {
 		this.focusMarker = this.focusMarker.bind(this);
 	}
 
-	getUnderline(string, sub) {
+	getUnderline(string, sub, className) {
 		const startIndex = string.toLowerCase().indexOf(sub.toLowerCase());
 		const endIndex = startIndex + sub.length;
 		const before = string.substr(0, startIndex);
@@ -16,7 +16,7 @@ export default class PersonButton extends Component {
 		const selectedString = string.substr(startIndex, sub.length);
 
 		return (
-			<p className='person-button__name'>
+			<p className={className}>
 				{before}
 				<span className='person-button__selection'>{selectedString}</span>
 				{after}
@@ -30,20 +30,36 @@ export default class PersonButton extends Component {
 	}
 
 	render() {
-		const { data, searchValue } = this.props;
+		const { data, searchValue, filter} = this.props;
 
-		return (
-			<button 
-				className='person-button'
-				onClick={() => this.focusMarker(5, [data.pos[0], data.pos[1]])}
-			>
-				{
-					searchValue === '' ? 
-						(<p className='person-button__name'>{data.name}</p>) : 
-						(this.getUnderline(data.name, searchValue))
-				}
-				<p className='person-button__post'>{data.post}</p>
-			</button>
-		);
+		if (filter === 'post') {
+			return (
+				<button 
+					className='person-button'
+					onClick={() => this.focusMarker(5, [data.pos[0], data.pos[1]])}
+				>
+					<p className='person-button__name'>{data.name}</p>
+					{
+						searchValue === '' ? 
+							(<p className='person-button__post'>{data.post}</p>) : 
+							(this.getUnderline(data.post, searchValue, 'person-button__post'))
+					}
+				</button>
+			);
+		} else {
+			return (
+				<button 
+					className='person-button'
+					onClick={() => this.focusMarker(5, [data.pos[0], data.pos[1]])}
+				>
+					{
+						searchValue === '' ? 
+							(<p className='person-button__name'>{data.name}</p>) : 
+							(this.getUnderline(data.name, searchValue, 'person-button__name'))
+					}
+					<p className='person-button__post'>{data.post}</p>
+				</button>
+			);
+		};
 	}
 }

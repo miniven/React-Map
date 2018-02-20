@@ -3,7 +3,8 @@ import PersonButton from '../components/PersonButton/PersonButton';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		'officeMap': state.officeMap
+		'officeMap': state.officeMap,
+		'filter': state.filter
 	};
 };
 
