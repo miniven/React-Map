@@ -16,14 +16,7 @@ export default class App extends Component {
 				<main className='app__main'>
 					<OfficeMapContainer />
 				</main>
-					<ModalContainer />
-				{/*<Modal 
-					point={this.state.currentPoint}
-					toggleModal={this.toggleModal}
-					isOpen={this.state.modalIsOpen}
-					setTransform={this.setTransform}
-				/>*/}
-
+				<ModalContainer />
 			</div>
 		);
 	}

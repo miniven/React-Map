@@ -19,6 +19,20 @@ import reducer from './reducers';
 
 const store = createStore(reducer);
 
+// fetch('http://localhost:8080/employees.json')
+// 	.then(data => data.json())
+// 	.then(data => {
+// 		data.forEach((employee) => {
+// 			store.dispatch({ 
+// 				type: 'ADD_EMPLOYEE',
+// 				firstLetter: employee.name[0].toUpperCase(),
+// 				...employee
+// 			});
+// 		});
+
+// 		store.dispatch({ type: 'SORT_BY_NAME' });
+// 	});
+
 employees.forEach((employee) => {
 	store.dispatch({ 
 		type: 'ADD_EMPLOYEE',
