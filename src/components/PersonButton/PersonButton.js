@@ -15,13 +15,19 @@ export default class PersonButton extends Component {
 		const after = string.substr(endIndex, string.length);
 		const selectedString = string.substr(startIndex, sub.length);
 
-		return (
-			<p className={className}>
-				{before}
-				<span className='person-button__selection'>{selectedString}</span>
-				{after}
-			</p>
-		);
+		if (selectedString.toLowerCase() === sub.toLowerCase()) {
+			return (
+				<p className={className}>
+					{before}
+					<span className='person-button__selection'>{selectedString}</span>
+					{after}
+				</p>
+			);
+		} else {
+			return (
+				<p className={className}>{string}</p>
+			);
+		};
 	}
 
 	focusMarker(zoom, coords) {
@@ -32,34 +38,27 @@ export default class PersonButton extends Component {
 	render() {
 		const { data, searchValue, filter} = this.props;
 
-		if (filter === 'post') {
-			return (
-				<button 
-					className='person-button'
-					onClick={() => this.focusMarker(5, [data.pos[0], data.pos[1]])}
-				>
-					<p className='person-button__name'>{data.name}</p>
-					{
-						searchValue === '' ? 
-							(<p className='person-button__post'>{data.post}</p>) : 
-							(this.getUnderline(data.post, searchValue, 'person-button__post'))
-					}
-				</button>
-			);
-		} else {
-			return (
-				<button 
-					className='person-button'
-					onClick={() => this.focusMarker(5, [data.pos[0], data.pos[1]])}
-				>
-					{
-						searchValue === '' ? 
-							(<p className='person-button__name'>{data.name}</p>) : 
-							(this.getUnderline(data.name, searchValue, 'person-button__name'))
-					}
-					<p className='person-button__post'>{data.post}</p>
-				</button>
-			);
-		};
+		return (
+			<button 
+				className='person-button'
+				onClick={() => this.focusMarker(5, [data.pos[0], data.pos[1]])}
+			>
+				{
+					searchValue === '' ? 
+						(
+							<div>
+								<p className='person-button__name'>{data.name}</p>
+								<p className='person-button__post'>{data.post}</p>
+							</div>
+						) :
+						(
+							<div>
+								{this.getUnderline(data.name, searchValue, 'person-button__name')}
+								{this.getUnderline(data.post, searchValue, 'person-button__post')}
+							</div>
+						)
+				}
+			</button>
+		);
 	}
 }

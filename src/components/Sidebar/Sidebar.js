@@ -31,8 +31,6 @@ const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, sortedBy, em
 				</div>
 			</div>
 			<div className='sidebar__block'>
-				<button onClick={() => setFilter('name')}>by name</button>
-				<button onClick={() => setFilter('post')}>by post</button>
 				<SearchField 
 					value={searchValue}
 					handleChange={handleChange}

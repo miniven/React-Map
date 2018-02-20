@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
 import Sidebar from '../components/Sidebar/Sidebar';
 
-const filterByProp = (list, prop, value) => {
+const filterByProp = (list, value) => {
 	return [
-		...list.filter(item => item[prop].toLowerCase().indexOf(value.toLowerCase()) >= 0)
+		...list.filter(item => {
+			return item['name'].toLowerCase().indexOf(value.toLowerCase()) >= 0 || 
+				item['post'].toLowerCase().indexOf(value.toLowerCase()) >= 0
+		})
 	];
 };
 
@@ -11,7 +14,7 @@ const mapStateToProps = state => {
 	return {
 		'sortedBy': state.sortedBy,
 		'searchValue': state.searchValue,
-		'employeeList': filterByProp(state.employeeList, state.filter, state.searchValue)
+		'employeeList': filterByProp(state.employeeList, state.searchValue)
 	};
 };
 
@@ -28,9 +31,6 @@ const mapDispatchToProps = dispatch => {
 	return {
 		handleChange(event) {
 			dispatch({ type: 'SET_SEARCH_VALUE', value: event.target.value });
-		},
-		setFilter(prop) {
-			dispatch({ type: 'SET_FILTER', prop });
 		},
 		addPoint(name) {
 			dispatch({ type: 'ADD_DEPARTMENT', name });
