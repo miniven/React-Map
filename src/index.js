@@ -22,6 +22,7 @@ const store = createStore(reducer);
 employees.forEach((employee) => {
 	store.dispatch({ 
 		type: 'ADD_EMPLOYEE',
+		firstLetter: employee.name[0].toUpperCase(),
 		...employee
 	});
 });

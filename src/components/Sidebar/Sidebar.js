@@ -38,7 +38,6 @@ const Sidebar = ({ searchValue, handleChange, getGroups, sortedBy, employeeList 
 				<div className='sidebar__sort-block'>
 					<SortButtonContainer type='NAME'>A–Я</SortButtonContainer>
 					<SortButtonContainer type='DIVISION'>Отделы</SortButtonContainer>
-					<SortButtonContainer type='POST'>Должности</SortButtonContainer>
 				</div>
 			</div>
 			{filterResult}

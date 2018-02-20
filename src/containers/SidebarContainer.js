@@ -15,6 +15,15 @@ const mapStateToProps = state => {
 	};
 };
 
+const getSortedGroups = (list, key) => {
+	return list.reduce((result, current) => {
+		return {
+			...result,
+			[current[key]]: result[current[key]] !== undefined ? [...result[current[key]], current.id] : [current.id]
+		};
+	}, {});
+};
+
 const mapDispatchToProps = dispatch => {
 	return {
 		handleChange(event) {
@@ -24,38 +33,16 @@ const mapDispatchToProps = dispatch => {
 			dispatch({ type: 'ADD_DEPARTMENT', name });
 		},
 		getGroups(employeeList, sorting) {
-			let key;
-
 			switch(sorting) {
 				case 'NAME':
-					key = 'name';
-					break;
+					return getSortedGroups(employeeList, 'firstLetter');
 				case 'DIVISION':
-					key = 'division';
-					break;
+					return getSortedGroups(employeeList, 'division');
 				case 'POST':
-					key = 'post';
-					break;
+					return getSortedGroups(employeeList, 'post');
 				default:
-					key = 'name';
-					break;
+					return getSortedGroups(employeeList, 'firstLetter');
 			};
-
-			if (sorting === 'NAME') {
-				return employeeList.reduce((result, current) => {
-					return {
-						...result,
-						[current[key][0]]: result[current[key][0]] !== undefined ? [...result[current[key][0]], current.id] : [current.id]
-					};
-				}, {});
-			};
-
-			return employeeList.reduce((result, current) => {
-				return {
-					...result,
-					[current[key]]: result[current[key]] !== undefined ? [...result[current[key]], current.id] : [current.id]
-				};
-			}, {});
 		}
 	};
 };
