@@ -1,3 +1,5 @@
+@import '../../_variables';
+
 .modal {
 	position: absolute;
 	left: 0;
@@ -23,12 +25,20 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		width: 45%;
+		width: 100%;
+		height: 100%;
 		padding: 8px 0;
 		font-family: $font-main;
 		font-size: 1rem;
 		background-color: #fff;
 		border: none;
+		overflow: scroll;
+
+		@media (min-width: $media-sm) {
+			width: 45%;
+			height: auto;
+			overflow: auto;
+		}
 	}
 
 	&__userpic {
@@ -64,28 +74,50 @@
 		justify-content: center;
 		width: 100%;
 		margin: 8px 0;
-		padding: 0 15px;
+		padding: 0 30px;
+
+		@media (min-width: $media-sm) {
+			padding: 0 15px;
+		}
 
 		&--half {
-			width: 50%;
+			width: 100%;
+
+			@media (min-width: $media-sm) {
+				width: 50%;
+			}
 		}
 	}
 
 	&__title {
 		margin: 10px 0;
 		font-family: $font-main;
-		font-size: 1.75em;
+		font-size: 2em;
 		font-weight: 700;
+
+		@media (min-width: $media-sm) {
+			font-size: 1.75em;
+		}
 	}
 
 	&__label {
-		font-size: 0.75em;
+    margin-top: 15px;
+		font-size: 0.9em;
 		color: transparentize(#000, 0.4);
+
+		@media (min-width: $media-sm) {
+			margin-top: 0;
+			font-size: 0.75em;
+		}
 	}
 
 	&__value {
 		margin: 5px 0 0;
-		font-size: 1em;
+		font-size: 1.2em;
 		color: #000;
+
+		@media (min-width: $media-sm) {
+			font-size: 1em;
+		}
 	}
 }
