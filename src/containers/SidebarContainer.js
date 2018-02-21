@@ -10,8 +10,9 @@ const filterByProp = (list, value) => {
 	];
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
 	return {
+		'toggleSidebar': ownProps.toggleSidebar,
 		'sortedBy': state.sortedBy,
 		'searchValue': state.searchValue,
 		'employeeList': filterByProp(state.employeeList, state.searchValue)

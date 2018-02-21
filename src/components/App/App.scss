@@ -1,12 +1,31 @@
+@import '../../_variables';
+
 .app {
 	position: relative;
 	display: flex;
 	height: 100%;
 
 	&__sidebar {
+		position: fixed;
+		left: 0;
+		top: 0;
+		bottom: 0;
 		flex: none;
-		flex-basis: 25%;
+		flex-basis: 90%;
 		max-width: 300px;
+		z-index: 10000;
+		transform: translateX(-100%);
+		transition: 0.3s cubic-bezier(1, 0, 0, 1);
+
+		@media (min-width: $media-sm) {
+			position: relative;
+			transform: translateX(0);
+			flex-basis: 25%;
+		}
+
+		&--visible {
+			transform: translateX(0);
+		}
 	}
 
 	&__main {

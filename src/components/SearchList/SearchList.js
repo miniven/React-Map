@@ -5,7 +5,7 @@ import PersonButtonContainer from '../../containers/PersonButtonContainer';
 
 export default class SearchList extends Component {
 	render() {
-		const { searchValue, employeeList, groups } = this.props;
+		const { searchValue, employeeList, groups, toggleSidebar } = this.props;
 
 		const fullList = Object.keys(groups).map(name => {
 			const employeeIDs = groups[name];
@@ -24,6 +24,7 @@ export default class SearchList extends Component {
 											<PersonButtonContainer 
 												searchValue={searchValue} 
 												data={employee}
+												toggleSidebar={toggleSidebar}
 											/>
 										</li>
 									) : null

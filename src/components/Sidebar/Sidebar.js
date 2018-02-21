@@ -8,7 +8,7 @@ import SearchField from '../SearchField/SearchField';
 import SearchList from '../SearchList/SearchList';
 import SortButtonContainer from '../../containers/SortButtonContainer';
 
-const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, sortedBy, employeeList }) => {
+const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, toggleSidebar, sortedBy, employeeList }) => {
 	let filterResult = null;
 
 	if (employeeList.length > 0) {
@@ -16,6 +16,7 @@ const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, sortedBy, em
 			<SearchList 
 				searchValue={searchValue}
 				employeeList={employeeList}
+				toggleSidebar={toggleSidebar}
 				groups={getGroups(employeeList, sortedBy)}
 			/>
 		);
@@ -25,6 +26,7 @@ const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, sortedBy, em
 
 	return (
 		<aside className='sidebar'>
+			<button className='sidebar__toggle' onClick={toggleSidebar}>Toggle</button>
 			<div className='sidebar__block sidebar__block--dark'>
 				<div className='sidebar__logo'>
 					<SVGInline svg={Logo} />

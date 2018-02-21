@@ -33,6 +33,7 @@ export default class PersonButton extends Component {
 	focusMarker(zoom, coords) {
 		this.props.setZoom(zoom);
 		this.props.setCoords(coords);
+		this.props.toggleSidebar();
 	}
 
 	render() {

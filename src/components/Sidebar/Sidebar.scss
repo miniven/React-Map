@@ -1,8 +1,22 @@
+@import '../../_variables';
+
 .sidebar {
+	position: relative;
 	height: 100%;
 	font-size: 1rem;
 	line-height: 1.5em;
 	background-color: #4e5a65;
+
+	&__toggle {
+		position: absolute;
+		right: -15px;
+		top: 15px;
+		transform: translateX(100%);
+
+		@media (min-width: $media-sm) {
+			display: none;
+		}
+	}
 	
 	&__block {
 		padding: 0 15px;
