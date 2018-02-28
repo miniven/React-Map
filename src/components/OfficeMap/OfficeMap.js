@@ -14,8 +14,9 @@ export default class OfficeMap extends Component {
     };
 
     this.setCurrentZoom = this.setCurrentZoom.bind(this);
-    this.focusMarker = this.focusMarker.bind(this);
+    this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.hideMarkers = this.hideMarkers.bind(this);
+    this.focusOnMarker = this.focusOnMarker.bind(this);
     this.showMarkers = this.showMarkers.bind(this);
   }
 
@@ -23,11 +24,15 @@ export default class OfficeMap extends Component {
     this.props.setZoom(event.target.getZoom());
   }
 
-  focusMarker(zoom, coords, data) {
-    this.props.setZoom(zoom);
-    this.props.setCoords(coords);
+  handleMarkerClick(zoom, coords, data) {
+    this.focusOnMarker(zoom, coords);
     this.props.setModalData(data);
     this.props.toggleModal();
+  }
+
+  focusOnMarker(zoom, coords) {
+    this.props.setZoom(zoom);
+    this.props.setCoords(coords);
   }
 
   hideMarkers(event) {
@@ -46,7 +51,8 @@ export default class OfficeMap extends Component {
 
   renderMarker(data, hidden) {
     const position = [data.pos[0], data.pos[1]];
-    const className = `leaflet__marker-inner ${hidden ? 'leaflet__marker-inner--hidden' : ''}`;
+    const imageClassName = `leaflet__marker-image ${hidden ? 'leaflet__marker-image--hidden' : ''}`;
+    const buttonClassName = `leaflet__marker-button ${hidden ? 'leaflet__marker-button--hidden' : ''}`;
 
     return (
         <DivIcon 
@@ -54,17 +60,30 @@ export default class OfficeMap extends Component {
           className='leaflet__marker'
           iconSize='auto'
           position={position}
-          onClick={() => this.focusMarker(5, position, data)}
         >
           <div 
-            className={className}
+            className='leaflet__marker-inner'
+            style={{
+              transform: `translateZ(0) translate(-50%, -50%) scale(${this.props.officeMap.zoom * 0.2})`
+            }}
           >
-            <img className='leaflet__marker-image' src={data.img} alt={data.name} />
+            <img 
+              className={imageClassName} 
+              src={data.img} 
+              alt={data.name}
+            />
             <div 
               className='leaflet__marker-content'
             >
-              <p className='leaflet__marker-text leaflet__marker-text--name'>{data.name}</p>
+              <p 
+                className='leaflet__marker-text leaflet__marker-text--name'
+                onClick={() => this.focusOnMarker(5, position)}
+              >{data.name}</p>
               <p className='leaflet__marker-text leaflet__marker-text--post'>{data.post}</p>
+              <button
+                className={buttonClassName}
+                onClick={() => this.handleMarkerClick(5, position, data)}
+              >Подробнее</button>
             </div>
           </div>
         </DivIcon>
