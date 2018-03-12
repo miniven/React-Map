@@ -42,7 +42,7 @@ export default class PersonButton extends Component {
 		return (
 			<button 
 				className='person-button'
-				onClick={() => this.focusMarker(5, [data.pos[0], data.pos[1]])}
+				onClick={() => this.focusMarker(6, [data.pos[0], data.pos[1]])}
 			>
 				{
 					searchValue === '' ? 

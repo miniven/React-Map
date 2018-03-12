@@ -88,6 +88,13 @@
 	background-color: #fff;
 }
 
+.leaflet-control-container .leaflet-top {
+	right: 10px;
+	left: auto;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
 .leaflet-touch .leaflet-bar {
 	display: none;
 	border: none;

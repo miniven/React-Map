@@ -36,11 +36,11 @@ export default class OfficeMap extends Component {
   }
 
   hideMarkers(event) {
-    event.target.getZoom() === 5 ? this.toggleMarkers() : null;
+    event.target.getZoom() === 6 ? this.toggleMarkers() : null;
   }
 
   showMarkers(event) {
-    event.target.getZoom() === 5 ? this.toggleMarkers() : null;
+    event.target.getZoom() === 6 ? this.toggleMarkers() : null;
   }
 
   toggleMarkers() {
@@ -64,7 +64,7 @@ export default class OfficeMap extends Component {
           <div 
             className='leaflet__marker-inner'
             style={{
-              transform: `translateZ(0) translate(-50%, -50%) scale(${this.props.officeMap.zoom * 0.2})`
+              transform: `translateZ(0) translate(-50%, -50%) scale(${this.props.officeMap.zoom * 0.16666666666})`
             }}
           >
             <img 
@@ -77,12 +77,12 @@ export default class OfficeMap extends Component {
             >
               <p 
                 className='leaflet__marker-text leaflet__marker-text--name'
-                onClick={() => this.focusOnMarker(5, position)}
+                onClick={() => this.focusOnMarker(6, position)}
               >{data.name}</p>
               <p className='leaflet__marker-text leaflet__marker-text--post'>{data.post}</p>
               <button
                 className={buttonClassName}
-                onClick={() => this.handleMarkerClick(5, position, data)}
+                onClick={() => this.handleMarkerClick(6, position, data)}
               >Подробнее</button>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default class OfficeMap extends Component {
         zoom={this.props.officeMap.zoom}
         maxBounds={this.props.officeMap.mapMaxBounds}
         maxBoundsViscosity={1.5}
-        maxZoom={5}
+        maxZoom={6}
         minZoom={3}
         onZoom={this.setCurrentZoom}
         onZoomstart={this.hideMarkers}
