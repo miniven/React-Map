@@ -9,8 +9,23 @@
 	border-radius: 1px;
 	transition: 0.2s ease;
 
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 10px;
+		display: block;
+		width: 30px;
+		height: 30px;
+		background: transparent url('./search_icon.png') center no-repeat;
+		background-size: 100%;
+		transform: translateY(-50%);
+	}
+
 	&--focused {
-		// background-image: linear-gradient(to right, #ff8008, #ffc837);
+		&:after {
+			display: none;
+		}
 	}
 
 	&__input {
