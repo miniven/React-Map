@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="97px" height="97px" viewBox="0 0 97 97" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>D9FE3F7D-58CB-4427-A159-C425DB5BB24B</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <filter x="-10.6%" y="-10.6%" width="121.2%" height="121.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1329.000000, -913.000000)">
+        <g id="LP_Base_CMYK" filter="url(#filter-1)" transform="translate(1335.000000, 919.000000)" fill-rule="nonzero">
+            <polyline id="Shape" fill="#939598" points="42.5 0 85 42.5 42.5 85 0 42.5 42.5 0"></polyline>
+            <rect id="Rectangle-path" fill="#000000" x="12" y="12" width="60" height="60"></rect>
+            <polygon id="Shape" fill="#FFFFFF" points="27 29 33.2769231 29 33.2769231 50.8076923 44 50.8076923 44 56 27 56"></polygon>
+            <polygon id="Shape" fill="#FFFFFF" points="48 34.1923077 38 34.1923077 38 29 54 29 54 56 48 56"></polygon>
+            <rect id="Rectangle-path" fill="#A7A9AC" x="60" y="29" width="5" height="5"></rect>
+        </g>
+    </g>
+</svg>

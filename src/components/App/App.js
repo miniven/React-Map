@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import OfficeMapContainer from '../../containers/OfficeMapContainer';
 import SidebarContainer from '../../containers/SidebarContainer';
 import ModalContainer from '../../containers/ModalContainer';
+import LogoContainer from '../../containers/LogoContainer';
 
 import './App.scss';
 
@@ -32,6 +33,7 @@ export default class App extends Component {
 				<main className='app__main'>
 					<OfficeMapContainer />
 				</main>
+				<LogoContainer />
 				<ModalContainer />
 			</div>
 		);
