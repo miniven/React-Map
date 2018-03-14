@@ -9,8 +9,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: transparentize(#000, 0.6);
-	z-index: 1000;
+	background-color: transparentize(#000, 0.5);
+	z-index: 10000;
 
 	&--open {
 		display: flex;

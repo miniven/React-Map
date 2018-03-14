@@ -14,6 +14,7 @@
 		transition: 0.2s ease;
 		-webkit-font-smoothing: subpixel-antialiased;
 		backface-visibility: hidden;
+		cursor: default;
 	}
 
 	&__marker-content {
@@ -52,8 +53,14 @@
 		background-color: #212121;
 		border: none;
 		border-radius: 0;
+		transition: 0.2s ease;
 		appearance: none;
 		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			background-color: transparentize(#212121, 0.2);
+		}
 
 		&--hidden {
 			display: none;

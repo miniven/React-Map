@@ -1,6 +1,7 @@
 import React from 'react';
 import SVGInline from 'react-svg-inline';
 import SidebarLogo from './lp-logo.svg';
+import TogglerImg from './toggler.svg';
 
 import './Sidebar.scss';
 
@@ -26,13 +27,15 @@ const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, toggleSideba
 
 	return (
 		<aside className='sidebar'>
-			<button className='sidebar__toggle' onClick={toggleSidebar}>Toggle</button>
 			<div className='sidebar__block sidebar__block--dark'>
 				<div className='sidebar__logo'>
 					<SVGInline svg={SidebarLogo} />
 				</div>
 			</div>
 			<div className='sidebar__block'>
+				<button className='sidebar__toggle' onClick={toggleSidebar}>
+					<SVGInline svg={TogglerImg} />
+				</button>
 				<SearchField 
 					value={searchValue}
 					handleChange={handleChange}

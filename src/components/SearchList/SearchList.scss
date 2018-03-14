@@ -1,11 +1,12 @@
 .search-list {
 	padding: 0;
-	margin: 15px 0;
+	margin: 15px 0 0;
 	font-size: 1rem;
 	font-family: $font-main;
 	font-weight: 500;
 	list-style: none;
-	overflow: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 
 	&__subtitle {
 		margin: 7px 15px;

@@ -11,20 +11,58 @@
 		top: 0;
 		bottom: 0;
 		flex: none;
-		flex-basis: 90%;
 		max-width: 300px;
 		z-index: 10000;
-		transform: translateX(-100%);
 		transition: 0.3s cubic-bezier(1, 0, 0, 1);
 
 		@media (min-width: $media-sm) {
 			position: relative;
-			transform: translateX(0);
-			flex-basis: 25%;
+		}
+
+		&--hidden {
+			width: 56px;
+			height: 112px;
+			overflow: hidden;
+
+			@media (min-width: $media-sm) {
+				width: 25%;
+				height: auto;
+			}
+
+			.sidebar__logo {
+				opacity: 0;
+
+				@media (min-width: $media-sm) {
+					opacity: 1;
+				}
+			}
+
+			.sidebar__sort-block {
+				display: none;
+
+				@media (min-width: $media-sm) {
+					display: flex;
+				}
+			}
+
+			.search,
+			.search-list {
+				display: none;
+
+				@media (min-width: $media-sm) {
+					display: block;
+				}
+			}
 		}
 
 		&--visible {
-			transform: translateX(0);
+			width: 85%;
+			height: auto;
+			overflow: visible;
+
+			.sidebar__toggle {
+				transform: translateX(50px);
+			}
 		}
 	}
 

@@ -27,7 +27,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<div className='app'>
-				<div className={`app__sidebar ${this.state.sidebarIsVisible ? 'app__sidebar--visible' : ''}`}>
+				<div className={`app__sidebar ${this.state.sidebarIsVisible ? 'app__sidebar--visible' : 'app__sidebar--hidden'}`}>
 					<SidebarContainer toggleSidebar={this.toggleSidebar}/>
 				</div>
 				<main className='app__main'>
