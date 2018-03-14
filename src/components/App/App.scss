@@ -21,12 +21,12 @@
 
 		&--hidden {
 			width: 56px;
-			height: 112px;
+			max-height: 112px;
 			overflow: hidden;
 
 			@media (min-width: $media-sm) {
 				width: 25%;
-				height: auto;
+				max-height: none;
 			}
 
 			.sidebar__logo {
@@ -57,11 +57,24 @@
 
 		&--visible {
 			width: 85%;
-			height: auto;
+			max-height: 850px;
 			overflow: visible;
+
+			@media (min-width: $media-sm) {
+				max-height: none;
+			}
 
 			.sidebar__toggle {
 				transform: translateX(50px);
+			}
+
+			.sidebar__sort-block,
+			.search,
+			.search-list {
+				opacity: 0;
+				animation: ShowSidebarContent 0.5s ease;
+				animation-delay: 0.2s;
+				animation-fill-mode: forwards;
 			}
 		}
 	}
@@ -70,5 +83,15 @@
 		position: relative;
 		flex: 1;
 		overflow: hidden;
+	}
+}
+
+@keyframes ShowSidebarContent {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
 	}
 }

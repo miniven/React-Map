@@ -38,4 +38,22 @@ export default class App extends Component {
 			</div>
 		);
 	}
-}
+};
+
+/*<div className='app'>
+	<Motion style={{ height: spring(sidebarHeight), width: spring(sidebarWidth) }}>
+		{
+			({ height, width }) => <div
+					className={`app__sidebar ${this.state.sidebarIsVisible ? 'app__sidebar--visible' : 'app__sidebar--hidden'}`} 
+					style={Object.assign({}, { height: 112, width: 56 }, { height, width } )}
+				>
+				<SidebarContainer toggleSidebar={this.toggleSidebar}/>
+			</div>
+		}
+	</Motion>
+	<main className='app__main'>
+		<OfficeMapContainer />
+	</main>
+	<LogoContainer />
+	<ModalContainer />
+</div>*/
