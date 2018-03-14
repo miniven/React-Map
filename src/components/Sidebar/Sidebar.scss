@@ -57,10 +57,16 @@
 		padding: 15px;
 		transition: 0.2s ease;
 
-		.SVGInline {
-		    display: block;
-		    line-height: 0;
+		&--small {
+			position: absolute;
+			top: 0;
+			left: -2px;
 		}
+	}
+
+	&__logo-svg {
+	    display: block;
+	    line-height: 0;
 	}
 
 	&__sort-block {

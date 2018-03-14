@@ -29,11 +29,17 @@
 				max-height: none;
 			}
 
-			.sidebar__logo {
+			.sidebar__logo--normal {
 				opacity: 0;
 
 				@media (min-width: $media-sm) {
 					opacity: 1;
+				}
+			}
+
+			.sidebar__logo--small {
+				@media (min-width: $media-sm) {
+					opacity: 0;
 				}
 			}
 
@@ -62,6 +68,10 @@
 
 			@media (min-width: $media-sm) {
 				max-height: none;
+			}
+
+			.sidebar__logo--small {
+				opacity: 0;
 			}
 
 			.sidebar__toggle {
