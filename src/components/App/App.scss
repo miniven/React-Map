@@ -13,7 +13,7 @@
 		flex: none;
 		max-width: 300px;
 		z-index: 10000;
-		transition: 0.3s cubic-bezier(1, 0, 0, 1);
+		transition: 0.2s ease;
 
 		@media (min-width: $media-sm) {
 			position: relative;
@@ -82,8 +82,8 @@
 			.search,
 			.search-list {
 				opacity: 0;
-				animation: ShowSidebarContent 0.5s ease;
-				animation-delay: 0.2s;
+				animation: ShowSidebarContent 0.3s ease;
+				animation-delay: 0.15s;
 				animation-fill-mode: forwards;
 			}
 		}
