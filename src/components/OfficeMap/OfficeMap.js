@@ -90,6 +90,11 @@ export default class OfficeMap extends Component {
     );
   }
 
+  componentDidMount() {
+    this.props.setZoom(3);
+    this.props.setCoords([70, 125]);
+  }
+
   render() {
     return (
       <Map 
@@ -103,6 +108,7 @@ export default class OfficeMap extends Component {
         onZoom={this.setCurrentZoom}
         onZoomstart={this.hideMarkers}
         onZoomend={this.showMarkers}
+        zoomAnimation={!navigator.userAgent.match(/(iPad|iPhone|iPod)/g)}
       >
         <ImageOverlay 
           url={this.props.officeMap.imageSrc}

@@ -130,6 +130,10 @@
 	}
 }
 
+.leaflet-control-attribution.leaflet-control {
+	display: none;
+}
+
 @keyframes Pop {
 	from {
 		transform: scale(0.9);

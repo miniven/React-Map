@@ -42,8 +42,6 @@ employees.forEach((employee) => {
 });
 
 store.dispatch({ type: 'SORT_BY_NAME' });
-store.dispatch({ type: 'SET_MAP_ZOOM', zoom: 3 });
-store.dispatch({ type: 'SET_MAP_COORDS', coords: [0, 0] });
 
 render(
 	<Provider store={store}>
