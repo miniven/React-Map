@@ -28,7 +28,7 @@ export default class App extends Component {
 		return (
 			<div className='app'>
 				<div className={`app__sidebar ${this.state.sidebarIsVisible ? 'app__sidebar--visible' : 'app__sidebar--hidden'}`}>
-					<SidebarContainer toggleSidebar={this.toggleSidebar}/>
+					<SidebarContainer toggleSidebar={this.toggleSidebar} sidebarIsVisible={this.state.sidebarIsVisible}/>
 				</div>
 				<main className='app__main'>
 					<OfficeMapContainer />

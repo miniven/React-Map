@@ -3,6 +3,7 @@ import SVGInline from 'react-svg-inline';
 import SidebarLogo from './lp-logo.svg';
 import SidebarLogoSmall from './lp-logo_small.svg';
 import TogglerImg from './toggler.svg';
+import TogglerCloseImg from './toggler_close.svg';
 
 import './Sidebar.scss';
 
@@ -10,7 +11,7 @@ import SearchField from '../SearchField/SearchField';
 import SearchList from '../SearchList/SearchList';
 import SortButtonContainer from '../../containers/SortButtonContainer';
 
-const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, toggleSidebar, sortedBy, employeeList }) => {
+const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, toggleSidebar, sidebarIsVisible, sortedBy, employeeList }) => {
 	let filterResult = null;
 
 	if (employeeList.length > 0) {
@@ -38,7 +39,7 @@ const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, toggleSideba
 			</div>
 			<div className='sidebar__block'>
 				<button className='sidebar__toggle' onClick={toggleSidebar}>
-					<SVGInline svg={TogglerImg} />
+					{ sidebarIsVisible ? <SVGInline svg={TogglerCloseImg} /> : <SVGInline svg={TogglerImg} /> }
 				</button>
 				<SearchField 
 					value={searchValue}
