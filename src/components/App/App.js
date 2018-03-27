@@ -19,9 +19,11 @@ export default class App extends Component {
 	}
 
 	toggleSidebar() {
-		this.setState({
-			sidebarIsVisible: !this.state.sidebarIsVisible
-		});
+		if (!window.matchMedia('(min-width: 576px)').matches) {
+			this.setState({
+				sidebarIsVisible: !this.state.sidebarIsVisible
+			});
+		}
 	}
 
 	render() {

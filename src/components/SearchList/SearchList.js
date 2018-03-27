@@ -4,6 +4,10 @@ import './SearchList.scss';
 import PersonButtonContainer from '../../containers/PersonButtonContainer';
 
 export default class SearchList extends Component {
+	shouldComponentUpdate(nextProps, nextState) {
+		return this.props.sidebarIsVisible !== nextProps.sidebarIsVisible;
+	}
+
 	render() {
 		const { searchValue, employeeList, groups, toggleSidebar } = this.props;
 

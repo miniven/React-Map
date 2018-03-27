@@ -21,6 +21,7 @@ const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, toggleSideba
 				employeeList={employeeList}
 				toggleSidebar={toggleSidebar}
 				groups={getGroups(employeeList, sortedBy)}
+				sidebarIsVisible={sidebarIsVisible}
 			/>
 		);
 	} else {
