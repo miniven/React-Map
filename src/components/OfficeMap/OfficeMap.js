@@ -64,7 +64,7 @@ export default class OfficeMap extends Component {
           <div 
             className='leaflet__marker-inner'
             style={{
-              transform: `translateZ(0) translate(-50%, -50%) scale(${this.props.officeMap.zoom * 0.16666666666})`
+              transform: `perspective(1px) translateZ(0) translate(-50%, -50%) scale(${this.props.officeMap.zoom * (this.props.officeMap.zoom / 3.6) * 0.1})`
             }}
           >
             <img 

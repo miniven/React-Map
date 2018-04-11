@@ -99,14 +99,24 @@
 }
 
 .leaflet-control-container .leaflet-top {
-	right: 10px;
-	left: auto;
-	top: 50%;
-	transform: translateY(-50%);
+	top: auto;
+	right: auto;
+	bottom: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+
+	@media (min-width: $media-sm) {
+		top: 50%;
+		right: 5px;
+		bottom: auto;
+		left: auto;
+		transform: translateY(-50%);
+	}
 }
 
 .leaflet-touch .leaflet-bar {
-	display: none;
+	display: flex;
+	flex-direction: row-reverse;
 	border: none;
 
 	@media (min-width: $media-sm) {
@@ -114,6 +124,7 @@
 	}
 
 	a {
+		margin: 2px;
 		color: #fff;
 		background-color: #2a2f34;
 		border-bottom: none;
