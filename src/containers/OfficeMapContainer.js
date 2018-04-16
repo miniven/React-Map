@@ -4,6 +4,7 @@ import OfficeMap from '../components/OfficeMap/OfficeMap';
 const mapStateToProps = (state, ownProps) => {
 	return {
 		'employeeList': state.employeeList,
+		'markers': state.markers,
 		'officeMap': state.officeMap
 	};
 };

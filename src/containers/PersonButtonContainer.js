@@ -4,6 +4,7 @@ import PersonButton from '../components/PersonButton/PersonButton';
 const mapStateToProps = (state, ownProps) => {
 	return {
 		'officeMap': state.officeMap,
+		'markers': state.markers,
 		'filter': state.filter
 	};
 };

@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import employees from './employees.json';
+import markers from './markers.json';
 
 // Styles
 
@@ -19,26 +20,17 @@ import reducer from './reducers';
 
 const store = createStore(reducer);
 
-// fetch('http://localhost:8080/employees.json')
-// 	.then(data => data.json())
-// 	.then(data => {
-// 		data.forEach((employee) => {
-// 			store.dispatch({ 
-// 				type: 'ADD_EMPLOYEE',
-// 				firstLetter: employee.name[0].toUpperCase(),
-// 				...employee
-// 			});
-// 		});
-
-// 		store.dispatch({ type: 'SORT_BY_NAME' });
-// 	});
-
 employees.forEach((employee) => {
 	store.dispatch({ 
 		type: 'ADD_EMPLOYEE',
 		firstLetter: employee.name[0].toUpperCase(),
 		...employee
 	});
+});
+
+store.dispatch({
+  type: 'SET_MARKERS',
+  data: markers
 });
 
 store.dispatch({ type: 'SORT_BY_NAME' });

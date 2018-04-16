@@ -50,7 +50,7 @@ export default class OfficeMap extends Component {
   }
 
   renderMarker(data, hidden) {
-    const position = [data.pos[0], data.pos[1]];
+    const position = this.props.markers[data.pos];
     const imageClassName = `leaflet__marker-image ${hidden ? 'leaflet__marker-image--hidden' : ''}`;
     const buttonClassName = `leaflet__marker-button ${hidden ? 'leaflet__marker-button--hidden' : ''}`;
 
