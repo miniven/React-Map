@@ -79,7 +79,7 @@ export default class OfficeMap extends Component {
                 className='leaflet__marker-text leaflet__marker-text--name'
                 onClick={() => this.focusOnMarker(6, position)}
               >{data.name}</p>
-              <p className='leaflet__marker-text leaflet__marker-text--post'>{data.post}</p>
+              <p className='leaflet__marker-text leaflet__marker-text--post'>{data.postShort || data.post}</p>
               <button
                 className={buttonClassName}
                 onClick={() => this.handleMarkerClick(6, position, data)}

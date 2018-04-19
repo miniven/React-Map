@@ -4,7 +4,8 @@ import Modal from '../components/Modal/Modal';
 const mapStateToProps = (state, ownProps) => {
 	return {
 		'open': state.modal.open,
-		'data': state.modal.data
+		'data': state.modal.data,
+		'chief': state.employeeList.find(employee => employee.id === state.modal.data.chiefID)
 	};
 };
 

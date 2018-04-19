@@ -4,6 +4,8 @@ import './Modal.scss';
 
 export default class Modal extends Component {
 	render() {
+		console.log(this.props);
+
 		if (!this.props.data) return null;
 
 		const data = this.props.data;
@@ -31,8 +33,14 @@ export default class Modal extends Component {
 					</div>
 					<div className='modal__row modal__row--half'>
 						<h2 className='modal__title'>{data.name}</h2>
-						<label className='modal__label'>Прямой руководитель</label>
-						<p className='modal__value'>{data.name}</p>
+						{
+							this.props.chief && (
+								<div>
+									<label className='modal__label'>Прямой руководитель</label>
+									<p className='modal__value'>{this.props.chief.name}</p>
+								</div>
+							)
+						}
 					</div>
 					<div className='modal__row'>
 						<label className='modal__label'>Должность</label>

@@ -1,12 +1,6 @@
 import { connect } from 'react-redux';
 import Logo from '../components/Logo/Logo';
 
-const mapStateToProps = (state) => {
-  return {
-
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
     'setZoom': value => {
@@ -16,7 +10,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 const LogoContainer = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Logo);
 
