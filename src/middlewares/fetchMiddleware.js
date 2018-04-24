@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const API_TOKEN = 'xoxp-228578268661-277959589909-352112584933-7f059ddd83fadb8a31176a46d8c15344';
+import { API_TOKEN } from '../constants';
 
 const fetchMiddleware = store => next => action => {
   if (action.type === 'FETCH_LIST') {

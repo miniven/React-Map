@@ -8,7 +8,6 @@
 
 # production
 /build
-src/employees.json
 
 # misc
 .DS_Store
@@ -20,3 +19,6 @@ src/employees.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+src/constants\.js
+src/employees\.json
