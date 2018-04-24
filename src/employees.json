@@ -368,6 +368,7 @@
 	},
 	{
 		"id": 44,
+		"slackUserName": "a.gropyanov",
 		"name": "Гропянов Александр",
 		"post": "Программист",
 		"division": "Xeteq",
@@ -392,6 +393,7 @@
 	},
 	{
 		"id": 49,
+		"slackUserName": "trepven",
 		"name": "Трепачко Вениамин",
 		"post": "Front-End-разработчик",
 		"division": "Отдел разработки",
@@ -477,6 +479,7 @@
 	},
 	{
 		"id": 59,
+		"slackUserName": "artbur",
 		"name": "Бурунов Артем",
 		"post": "Главный дизайнер",
 		"division": "Piconsult",

@@ -1,4 +1,17 @@
-const employeeList = (state = [], { type, firstLetter, id, name, postShort, post, division, sort, chiefID, pos }) => {
+const employeeList = (state = [], {
+	type,
+	firstLetter, 
+	id,
+	slackUserName,
+	name,
+	postShort,
+	post,
+	division,
+	sort,
+	chiefID,
+	pos,
+	members
+}) => {
 	switch(type) {
 		case 'ADD_EMPLOYEE':
 			return [
@@ -7,6 +20,7 @@ const employeeList = (state = [], { type, firstLetter, id, name, postShort, post
 					img: 'https://www.talaka.org/assets/img/userpic-fallback.svg',
 					firstLetter,
 					id,
+					slackUserName,
 					name,
 					postShort,
 					post,
@@ -14,6 +28,26 @@ const employeeList = (state = [], { type, firstLetter, id, name, postShort, post
 					chiefID,
 					pos
 				}
+			];
+		case 'UPDATE_LIST':
+			return [
+				...state.filter(employee => !employee.slackUserName),
+				...state
+					.filter(employee => employee.slackUserName)
+					.map(employee => {
+						const member = members.find(member => member.name === employee.slackUserName);
+
+						if (member) {
+							return {
+								...employee,
+								profile: member.profile
+							};
+						}
+
+						return {
+							...employee
+						};
+					})
 			];
 		case 'SORT_BY_NAME':
 			return [

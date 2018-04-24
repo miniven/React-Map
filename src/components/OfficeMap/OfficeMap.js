@@ -69,7 +69,7 @@ export default class OfficeMap extends Component {
           >
             <img 
               className={imageClassName} 
-              src={data.img} 
+              src={data.profile ? data.profile.image_72 : data.img} 
               alt={data.name}
             />
             <div 

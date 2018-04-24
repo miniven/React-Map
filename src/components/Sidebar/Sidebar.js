@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SVGInline from 'react-svg-inline';
 import SidebarLogo from './lp-logo.svg';
 import SidebarLogoSmall from './lp-logo_small.svg';
@@ -11,49 +11,57 @@ import SearchField from '../SearchField/SearchField';
 import SearchList from '../SearchList/SearchList';
 import SortButtonContainer from '../../containers/SortButtonContainer';
 
-const Sidebar = ({ searchValue, setFilter, handleChange, getGroups, toggleSidebar, sidebarIsVisible, sortedBy, employeeList }) => {
-	let filterResult = null;
+class Sidebar extends Component {
+	componentWillMount() {
+		this.props.fetchList();
+	}
 
-	if (employeeList.length > 0) {
-		filterResult = (
-			<SearchList 
-				searchValue={searchValue}
-				employeeList={employeeList}
-				toggleSidebar={toggleSidebar}
-				groups={getGroups(employeeList, sortedBy)}
-				sidebarIsVisible={sidebarIsVisible}
-			/>
-		);
-	} else {
-		filterResult = <p className='sidebar__message'>Кажется, сотрудник с таким именем не работает в компании. Попробуйте поискать другого.</p>;
-	};
+	render() {
+		const { searchValue, setFilter, handleChange, getGroups, toggleSidebar, sidebarIsVisible, sortedBy, employeeList, fetchList } = this.props;
 
-	return (
-		<aside className='sidebar'>
-			<div className='sidebar__block sidebar__block--dark'>
-				<div className='sidebar__logo sidebar__logo--normal'>
-					<SVGInline svg={SidebarLogo} className='sidebar__logo-svg'/>
-				</div>
-				<div className='sidebar__logo sidebar__logo--small'>
-					<SVGInline svg={SidebarLogoSmall} className='sidebar__logo-svg'/>
-				</div>
-			</div>
-			<div className='sidebar__block'>
-				<button className='sidebar__toggle' onClick={toggleSidebar}>
-					{ sidebarIsVisible ? <SVGInline svg={TogglerCloseImg} /> : <SVGInline svg={TogglerImg} /> }
-				</button>
-				<SearchField 
-					value={searchValue}
-					handleChange={handleChange}
+		let filterResult = null;
+
+		if (employeeList.length > 0) {
+			filterResult = (
+				<SearchList 
+					searchValue={searchValue}
+					employeeList={employeeList}
+					toggleSidebar={toggleSidebar}
+					groups={getGroups(employeeList, sortedBy)}
+					sidebarIsVisible={sidebarIsVisible}
 				/>
-				<div className='sidebar__sort-block'>
-					<SortButtonContainer type='NAME'>A–Я</SortButtonContainer>
-					<SortButtonContainer type='DIVISION'>Отделы</SortButtonContainer>
+			);
+		} else {
+			filterResult = <p className='sidebar__message'>Кажется, сотрудник с таким именем не работает в компании. Попробуйте поискать другого.</p>;
+		};
+
+		return (
+			<aside className='sidebar'>
+				<div className='sidebar__block sidebar__block--dark'>
+					<div className='sidebar__logo sidebar__logo--normal'>
+						<SVGInline svg={SidebarLogo} className='sidebar__logo-svg'/>
+					</div>
+					<div className='sidebar__logo sidebar__logo--small'>
+						<SVGInline svg={SidebarLogoSmall} className='sidebar__logo-svg'/>
+					</div>
 				</div>
-			</div>
-			{filterResult}
-		</aside>
-	);
+				<div className='sidebar__block'>
+					<button className='sidebar__toggle' onClick={toggleSidebar}>
+						{ sidebarIsVisible ? <SVGInline svg={TogglerCloseImg} /> : <SVGInline svg={TogglerImg} /> }
+					</button>
+					<SearchField 
+						value={searchValue}
+						handleChange={handleChange}
+					/>
+					<div className='sidebar__sort-block'>
+						<SortButtonContainer type='NAME'>A–Я</SortButtonContainer>
+						<SortButtonContainer type='DIVISION'>Отделы</SortButtonContainer>
+					</div>
+				</div>
+				{filterResult}
+			</aside>
+		);
+	}
 };
 
 export default Sidebar;

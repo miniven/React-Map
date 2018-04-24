@@ -4,13 +4,11 @@ import './Modal.scss';
 
 export default class Modal extends Component {
 	render() {
-		console.log(this.props);
-
 		if (!this.props.data) return null;
 
 		const data = this.props.data;
 		const modalClassName = `modal ${this.props.open ? 'modal--open' : 'modal--closed'}`;
-		const photoSrc = data.photo ? data.photo : 'https://www.matchmyemail.com/wp-content/themes/nrg/images/userpic.png';
+		const photoSrc = data.profile ? data.profile.image_512 : 'https://www.matchmyemail.com/wp-content/themes/nrg/images/userpic.png';
 
 		return (
 			<div 
@@ -52,11 +50,11 @@ export default class Modal extends Component {
 					</div>
 					<div className='modal__row modal__row--half'>
 						<label className='modal__label'>Телефон</label>
-						<p className='modal__value'>{data.phone || 'Нет данных'}</p>
+						<p className='modal__value'>{data.profile ? data.profile.phone : 'Нет данных'}</p>
 					</div>
 					<div className='modal__row modal__row--half'>
 						<label className='modal__label'>Email</label>
-						<p className='modal__value'>{data.email || 'Нет данных'}</p>
+						<p className='modal__value'>{data.profile ? data.profile.email : 'Нет данных'}</p>
 					</div>
 				</dialog>
 			</div>

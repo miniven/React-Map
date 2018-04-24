@@ -47,6 +47,9 @@ const mapDispatchToProps = dispatch => {
 				default:
 					return getSortedGroups(employeeList, 'firstLetter');
 			};
+		},
+		fetchList(members) {
+			dispatch({ type: 'FETCH_LIST' });
 		}
 	};
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import employees from './employees.json';
 import markers from './markers.json';
@@ -18,7 +18,11 @@ import App from './components/App/App';
 
 import reducer from './reducers';
 
-const store = createStore(reducer);
+// Middlewares
+
+import fetchMiddleware from './middlewares/fetchMiddleware';
+
+const store = createStore(reducer, applyMiddleware(fetchMiddleware));
 
 employees.forEach((employee) => {
 	store.dispatch({ 
