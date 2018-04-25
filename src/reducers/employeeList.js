@@ -1,3 +1,5 @@
+import { ADD_EMPLOYEE, UPDATE_LIST, SORT_BY_NAME } from '../types/employee';
+
 const employeeList = (state = [], {
 	type,
 	firstLetter, 
@@ -13,7 +15,7 @@ const employeeList = (state = [], {
 	members
 }) => {
 	switch(type) {
-		case 'ADD_EMPLOYEE':
+		case ADD_EMPLOYEE:
 			return [
 				...state,
 				{
@@ -29,7 +31,7 @@ const employeeList = (state = [], {
 					pos
 				}
 			];
-		case 'UPDATE_LIST':
+		case UPDATE_LIST:
 			return [
 				...state.filter(employee => !employee.email),
 				...state
@@ -49,13 +51,9 @@ const employeeList = (state = [], {
 						};
 					})
 			];
-		case 'SORT_BY_NAME':
+		case SORT_BY_NAME:
 			return [
 				...state.sort((current, next) => current.name > next.name ? 1 : -1)
-			];
-		case 'SORT_BY_DIVISION':
-			return [
-				...state.sort((current, next) => current.division > next.division ? 1 : -1)
 			];
 		default:
 			return state;

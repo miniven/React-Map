@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import PersonButton from '../components/PersonButton/PersonButton';
 
+import { setMapZoom, setMapCoords } from '../actions/officeMap';
+
 const mapStateToProps = (state, ownProps) => {
 	return {
 		'officeMap': state.officeMap,
@@ -12,11 +14,11 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
 	return {
 		'setZoom': value => {
-			dispatch({ type: 'SET_MAP_ZOOM', zoom: value });
+			dispatch(setMapZoom(value));
 		},
 
 		'setCoords': coords => {
-			dispatch({ type: 'SET_MAP_COORDS', coords });
+			dispatch(setMapCoords(coords));
 		}
 	};
 };

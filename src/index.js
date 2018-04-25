@@ -20,24 +20,22 @@ import reducer from './reducers';
 
 // Middlewares
 
-import fetchMiddleware from './middlewares/fetchMiddleware';
+import thunk from 'redux-thunk';
 
-const store = createStore(reducer, applyMiddleware(fetchMiddleware));
+// Actions
+
+import { addEmployee, sortByName } from './actions/employee';
+import { setMarkers } from './actions/markers';
+
+const store = createStore(reducer, applyMiddleware(thunk));
 
 employees.forEach((employee) => {
-	store.dispatch({ 
-		type: 'ADD_EMPLOYEE',
-		firstLetter: employee.name[0].toUpperCase(),
-		...employee
-	});
+	store.dispatch(addEmployee(employee, employee.name[0].toUpperCase()));
 });
 
-store.dispatch({
-  type: 'SET_MARKERS',
-  data: markers
-});
+store.dispatch(setMarkers(markers));
 
-store.dispatch({ type: 'SORT_BY_NAME' });
+store.dispatch(sortByName());
 
 render(
 	<Provider store={store}>

@@ -1,5 +1,12 @@
+import axios from 'axios';
 import { connect } from 'react-redux';
+import { API_TOKEN } from '../constants';
 import Sidebar from '../components/Sidebar/Sidebar';
+
+import { updateList } from '../actions/employee';
+import { setSearchValue } from '../actions/search';
+
+import { NAME, DIVISION, POST } from '../types/sort';
 
 const filterByProp = (list, value) => {
 	return [
@@ -31,25 +38,29 @@ const getSortedGroups = (list, key) => {
 const mapDispatchToProps = dispatch => {
 	return {
 		handleChange(event) {
-			dispatch({ type: 'SET_SEARCH_VALUE', value: event.target.value });
-		},
-		addPoint(name) {
-			dispatch({ type: 'ADD_DEPARTMENT', name });
+			dispatch(setSearchValue(event.target.value));
 		},
 		getGroups(employeeList, sorting) {
 			switch(sorting) {
-				case 'NAME':
+				case NAME:
 					return getSortedGroups(employeeList, 'firstLetter');
-				case 'DIVISION':
+				case DIVISION:
 					return getSortedGroups(employeeList, 'division');
-				case 'POST':
+				case POST:
 					return getSortedGroups(employeeList, 'post');
 				default:
 					return getSortedGroups(employeeList, 'firstLetter');
 			};
 		},
 		fetchList(members) {
-			dispatch({ type: 'FETCH_LIST' });
+			dispatch(dispatch => {
+		    axios.get(`https://slack.com/api/users.list?token=${API_TOKEN}`)
+		      .then(response => response.data.members)
+		      .then(members => {
+		        dispatch(updateList(members));
+		      })
+		      .catch(err => console.error(err));
+			});
 		}
 	};
 };

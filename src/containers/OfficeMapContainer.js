@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import OfficeMap from '../components/OfficeMap/OfficeMap';
 
+import { setMapZoom, setMapCoords } from '../actions/officeMap';
+import { toggleModalVisibility, setModalData } from '../actions/modal';
+
 const mapStateToProps = (state, ownProps) => {
 	return {
 		'employeeList': state.employeeList,
@@ -12,19 +15,19 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
 	return {
 		'setZoom': value => {
-			dispatch({ type: 'SET_MAP_ZOOM', zoom: value });
+			dispatch(setMapZoom(value));
 		},
 
 		'setCoords': coords => {
-			dispatch({ type: 'SET_MAP_COORDS', coords });
+			dispatch(setMapCoords(coords));
 		},
 
 		'toggleModal': () => {
-			dispatch({ type: 'TOGGLE_MODAL_VISIBILITY' });
+			dispatch(toggleModalVisibility());
 		},
 
 		'setModalData': data => {
-			dispatch({ type: 'SET_MODAL_DATA', data });
+			dispatch(setModalData(data));
 		}
 	};
 };

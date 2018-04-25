@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import Modal from '../components/Modal/Modal';
 
+import { toggleModalVisibility } from '../actions/modal';
+
 const mapStateToProps = (state, ownProps) => {
 	return {
 		'open': state.modal.open,
@@ -12,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
 	return {
 		'toggleModal': () => {
-			dispatch({ type: 'TOGGLE_MODAL_VISIBILITY' });
+			dispatch(toggleModalVisibility());
 		},
 	};
 };

@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import SortButton from '../components/SortButton/SortButton';
 
+import { setSort } from '../actions/sort';
+
 const mapStateToProps = (state, ownProps) => {
 	return {
 		'sortedBy': state.sortedBy
@@ -10,18 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		'setSortBy': name => {
-			dispatch({ type: 'SET_SORT', name });
-
-			// switch(name) {
-			// 	case 'NAME':
-			// 		dispatch({ type: 'SORT_BY_NAME' });
-			// 		break;
-			// 	case 'DIVISION':
-			// 		dispatch({ type: 'SORT_BY_DIVISION' });
-			// 		break;
-			// 	default:
-			// 		break;
-			// };
+			dispatch(setSort(name));
 		}
 	};
 };

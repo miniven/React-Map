@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import Logo from '../components/Logo/Logo';
 
+import { setMapZoom } from '../actions/officeMap';
+
 const mapDispatchToProps = dispatch => {
   return {
     'setZoom': value => {
-      dispatch({ type: 'SET_MAP_ZOOM', zoom: value });
+      dispatch(setMapZoom(value));
     }
   };
 };
