@@ -6,6 +6,8 @@ const fetchMiddleware = store => next => action => {
     axios.get(`https://slack.com/api/users.list?token=${API_TOKEN}`)
       .then(response => response.data.members)
       .then(members => {
+        // console.log(members.find(mem => mem.profile.email === 'yem@linkprofit.com'));
+        console.log(members.map(mem => `${mem.real_name} | ${mem.profile.email}`));
         store.dispatch({ type: 'UPDATE_LIST', members });
       })
       .catch(err => console.error(err));

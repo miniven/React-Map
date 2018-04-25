@@ -2,7 +2,7 @@ const employeeList = (state = [], {
 	type,
 	firstLetter, 
 	id,
-	slackUserName,
+	email,
 	name,
 	postShort,
 	post,
@@ -20,7 +20,7 @@ const employeeList = (state = [], {
 					img: 'https://www.talaka.org/assets/img/userpic-fallback.svg',
 					firstLetter,
 					id,
-					slackUserName,
+					email,
 					name,
 					postShort,
 					post,
@@ -31,11 +31,11 @@ const employeeList = (state = [], {
 			];
 		case 'UPDATE_LIST':
 			return [
-				...state.filter(employee => !employee.slackUserName),
+				...state.filter(employee => !employee.email),
 				...state
-					.filter(employee => employee.slackUserName)
+					.filter(employee => employee.email)
 					.map(employee => {
-						const member = members.find(member => member.name === employee.slackUserName);
+						const member = members.find(member => member.profile.email === employee.email);
 
 						if (member) {
 							return {

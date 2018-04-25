@@ -80,6 +80,7 @@
 
 		@media (min-width: $media-sm) {
 			padding: 0 15px;
+			justify-content: flex-start;
 		}
 
 		&--half {
