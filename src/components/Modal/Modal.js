@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 
 import './Modal.scss';
 
+// Components //
+
+import LazyImage from '../LazyImage/LazyImage';
+
 export default class Modal extends Component {
+
 	render() {
 		if (!this.props.data) return null;
 
 		const data = this.props.data;
 		const modalClassName = `modal ${this.props.open ? 'modal--open' : 'modal--closed'}`;
-		const photoSrc = data.profile ? data.profile.image_512 : 'https://www.matchmyemail.com/wp-content/themes/nrg/images/userpic.png';
+		const photoSrc = data.profile ? data.profile.image_512 : null;
 
 		return (
 			<div 
@@ -27,7 +32,7 @@ export default class Modal extends Component {
 						}}
 					></button>
 					<div className='modal__row modal__row--half'>
-						<img className='modal__userpic' src={photoSrc} alt={data.name} />
+						<LazyImage className='modal__userpic' src={photoSrc} name={data.name} isVisible={this.props.open}/>
 					</div>
 					<div className='modal__row modal__row--half'>
 						<h2 className='modal__title'>{data.name}</h2>
