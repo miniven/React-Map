@@ -8,7 +8,6 @@ class LazyImage extends Component {
   }
 
   setLoaded = () => {
-    console.log('loaded');
     this.setState({ loaded: true });
   }
 
@@ -17,15 +16,18 @@ class LazyImage extends Component {
   }
 
   render() {
+    const { loaded } = this.state;
+    const { src, name, className } = this.props;
+
     return (
       <div className="lazy-image">
-        <div className={`lazy-image__loader ${this.state.loaded ? 'lazy-image__loader--hidden' : ''}`}>
+        <div className={`lazy-image__loader ${loaded ? 'lazy-image__loader--hidden' : ''}`}>
           <div className="lazy-image__box"></div>
         </div>
         <img
-          className={`${this.props.className} lazy-image__img ${this.state.loaded ? 'lazy-image__img--loaded' : ''}`}
-          src={this.props.src}
-          alt={this.props.name}
+          className={`${className} lazy-image__img ${loaded ? 'lazy-image__img--loaded' : ''}`}
+          src={src}
+          alt={name}
           onLoad={this.setLoaded}
         />
       </div>

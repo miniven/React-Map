@@ -17,7 +17,7 @@ class Sidebar extends Component {
 	}
 
 	render() {
-		const { searchValue, setFilter, handleChange, getGroups, toggleSidebar, sidebarIsVisible, sortedBy, employeeList, fetchList } = this.props;
+		const { searchValue, handleChange, getGroups, toggleSidebar, sidebarIsVisible, sortedBy, employeeList } = this.props;
 
 		let filterResult = null;
 

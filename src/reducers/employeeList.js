@@ -39,6 +39,8 @@ const employeeList = (state = [], {
 					.map(employee => {
 						const member = members.find(member => member.profile.email === employee.email);
 
+						console.log(member);
+
 						if (member) {
 							return {
 								...employee,
